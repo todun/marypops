@@ -26,13 +26,7 @@ export default {
   methods: {
     onSubmit () {
       let inputFirstname = this.firstname
-      console.log('firstname', inputFirstname)
-      this.axios.get(`http://localhost:3000/guests/${inputFirstname}`)
-        .then(res => {
-          console.log('res', res.data)
-          let lastname = res.data.lastname
-          console.log('lastname', lastname)
-        })
+      this.$store.dispatch('setGuest', {firstname: inputFirstname})
     }
   },
   mounted () {

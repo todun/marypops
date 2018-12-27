@@ -18,33 +18,24 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 export default {
   name: 'Guest',
+  computed: {
+    ...mapState({
+      token: state => state.token
+    })
+  },
   data () {
     return {
-      token: false,
       inputError: false,
       inputToken: ''
     }
   },
   methods: {
     onSubmit () {
-      // let inputToken = this.token
-      console.log('inputoken', this.inputToken)
-      if (this.inputToken === 'code') {
-        this.token = true
-        this.$router.push({ name: 'GuestLink' })
-      } else {
-        this.inputError = true
-      }
+      this.$store.dispatch('setToken', {token: this.inputToken})
     }
-  },
-  mounted () {
-    this.axios.get('http://localhost:3000/guests')
-      .then(res => {
-        console.log('res', res)
-      })
   }
 }
 </script>

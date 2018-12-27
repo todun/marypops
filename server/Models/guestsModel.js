@@ -2,13 +2,11 @@ const db = require('./db.js')
 
 module.exports = {
 
-  getGuests() {
-    console.log('all');
+  getGuests () {
     return db.query('SELECT * FROM public."Guests"')
   },
 
-  getGuestByFirstname(firstname) {
-    console.log('firstname');
+  getGuestByFirstname (firstname) {
     return db.query(`SELECT * FROM public."Guests" WHERE firstname='${firstname}'`)
-  },
+  }
 }

@@ -11,8 +11,7 @@ import Hostel from '@/components/Hostel'
 import Gift from '@/components/Gift'
 import Form from '@/components/Form'
 import Redirect404 from '@/components/Redirect404'
-let token
-
+import store from '../store'
 Vue.use(Router)
 
 export default new Router({
@@ -27,24 +26,40 @@ export default new Router({
           path: '/guest/link',
           name: 'GuestLink',
           component: GuestLink,
-          props: true
-          // beforeEnter (to, from, next) {
-          //   if () {
-          //     next()
-          //   } else {
-          //     next({name: 'Redirect404'})
-          //   }
-          // }
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Redirect404'})
+            }
+          }
         },
         {
           path: '/guest/name',
           name: 'GuestName',
-          component: GuestName
+          component: GuestName,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Redirect404'})
+            }
+          }
         },
         {
           path: '/guest/identity',
           name: 'GuestIdentity',
-          component: GuestIdentity
+          component: GuestIdentity,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Redirect404'})
+            }
+          }
         }
       ]
     },
@@ -57,38 +72,79 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
+      props: true,
       beforeEnter (to, from, next) {
-        if (token) {
+        if (store.state.token) {
           next()
         } else {
-          next({name: 'Guest'})
+          next({name: 'Redirect404'})
         }
       }
     },
     {
       path: '/contact',
       name: 'Contact',
-      component: Contact
+      component: Contact,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Redirect404'})
+        }
+      }
     },
     {
       path: '/place',
       name: 'Place',
-      component: Place
+      component: Place,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Redirect404'})
+        }
+      }
     },
     {
       path: '/hostel',
       name: 'Hostel',
-      component: Hostel
+      component: Hostel,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Redirect404'})
+        }
+      }
     },
     {
       path: '/gift',
       name: 'Gift',
-      component: Gift
+      component: Gift,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Redirect404'})
+        }
+      }
     },
     {
       path: '/form',
       name: 'Form',
-      component: Form
+      component: Form,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Redirect404'})
+        }
+      }
     }
   ]
 })
