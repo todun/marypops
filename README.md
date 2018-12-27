@@ -14,7 +14,7 @@
 
 ## MAQUETTE
 
-![VISUEL](https://github.com/oliviapycz/MaryPops/raw/master/MOODmaquetteBOARD.png)
+![VISUEL](https://github.com/oliviapycz/MaryPops/raw/master/maquette.png)
 
 ## FONCTIONNALITES
 
