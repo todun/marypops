@@ -17,7 +17,7 @@
         <h2>Bienvenue sur notre site!</h2>
         <h2>Quel est votre lien avec les mariées?</h2>
       </article>
-      <div>
+      <div class="btn-wrapper btn-wrapper__row">
         <a class="btn" @click="linkValidated(link[0])">Jana</a>
         <a class="btn" @click="linkValidated(link[1])">Olivia</a>
       </div>

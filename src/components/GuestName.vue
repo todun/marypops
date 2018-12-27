@@ -25,8 +25,12 @@ export default {
   },
   methods: {
     onSubmit () {
-      let inputFirstname = this.firstname
-      this.$store.dispatch('setGuest', {firstname: inputFirstname})
+      let formattingData = this.firstname.trim().toLowerCase()
+      formattingData = this.capitalizeFirstLetter(formattingData)
+      this.$store.dispatch('setGuest', {firstname: formattingData})
+    },
+    capitalizeFirstLetter (string) {
+      return string[0].toUpperCase() + string.slice(1)
     }
   },
   mounted () {

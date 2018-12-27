@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Guest from '@/components/Guest'
-import GuestName from '@/components/GuestName'
 import GuestLink from '@/components/GuestLink'
+import GuestName from '@/components/GuestName'
 import GuestIdentity from '@/components/GuestIdentity'
+import GuestWrongIdentity from '@/components/GuestWrongIdentity'
+import GuestConfirmIdentity from '@/components/GuestConfirmIdentity'
+import GuestNotFound from '@/components/GuestNotFound'
+import GuestData from '@/components/GuestData'
+import GuestAccess from '@/components/GuestAccess'
 import Home from '@/components/Home'
 import Contact from '@/components/Contact'
 import Place from '@/components/Place'
@@ -31,7 +36,7 @@ export default new Router({
             if (store.state.token) {
               next()
             } else {
-              next({name: 'Redirect404'})
+              next({name: 'Guest'})
             }
           }
         },
@@ -44,7 +49,7 @@ export default new Router({
             if (store.state.token) {
               next()
             } else {
-              next({name: 'Redirect404'})
+              next({name: 'Guest'})
             }
           }
         },
@@ -57,7 +62,72 @@ export default new Router({
             if (store.state.token) {
               next()
             } else {
-              next({name: 'Redirect404'})
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/find-identity',
+          name: 'GuestWrongIdentity',
+          component: GuestWrongIdentity,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/confirm-identity',
+          name: 'GuestConfirmIdentity',
+          component: GuestConfirmIdentity,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/not-found-contact',
+          name: 'GuestNotFound',
+          component: GuestNotFound,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/data',
+          name: 'GuestData',
+          component: GuestData,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/access',
+          name: 'GuestAccess',
+          component: GuestAccess,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
             }
           }
         }
@@ -77,7 +147,7 @@ export default new Router({
         if (store.state.token) {
           next()
         } else {
-          next({name: 'Redirect404'})
+          next({name: 'Guest'})
         }
       }
     },
@@ -90,7 +160,7 @@ export default new Router({
         if (store.state.token) {
           next()
         } else {
-          next({name: 'Redirect404'})
+          next({name: 'Guest'})
         }
       }
     },
@@ -103,7 +173,7 @@ export default new Router({
         if (store.state.token) {
           next()
         } else {
-          next({name: 'Redirect404'})
+          next({name: 'Guest'})
         }
       }
     },
@@ -116,7 +186,7 @@ export default new Router({
         if (store.state.token) {
           next()
         } else {
-          next({name: 'Redirect404'})
+          next({name: 'Guest'})
         }
       }
     },
@@ -129,7 +199,7 @@ export default new Router({
         if (store.state.token) {
           next()
         } else {
-          next({name: 'Redirect404'})
+          next({name: 'Guest'})
         }
       }
     },
@@ -142,7 +212,7 @@ export default new Router({
         if (store.state.token) {
           next()
         } else {
-          next({name: 'Redirect404'})
+          next({name: 'Guest'})
         }
       }
     }

@@ -6,9 +6,9 @@
         <h2>Ah {{guest.firstname}} merci d'être ici!</h2>
         <h2>Confirmez-nous juste que vous êtes bien {{guest.firstname}} {{guest.lastname}}</h2>
       </article>
-      <div>
-        <a class="btn">C'est bien moi!</a>
-        <a class="btn">Ah non mauvais {{guest.firstname}}</a>
+      <div class="btn-wrapper btn-wrapper__column">
+        <a class="btn btn--orange" @click="(() => { this.$router.push({name: 'GuestData'})})">C'est bien moi!</a>
+        <a class="btn" @click="(() => { this.$router.push({name: 'GuestWrongIdentity'})})">Ah non mauvais {{guest.firstname}}...</a>
       </div>
     </section>
   </section>
