@@ -25,14 +25,12 @@ export default {
   },
   methods: {
     onSubmit () {
-      let inputFirstname = this.firstname
-      console.log('firstname', inputFirstname)
-      this.axios.get(`http://localhost:3000/guests/${inputFirstname}`)
-        .then(res => {
-          console.log('res', res.data)
-          let lastname = res.data.lastname
-          console.log('lastname', lastname)
-        })
+      let formattingData = this.firstname.trim().toLowerCase()
+      formattingData = this.capitalizeFirstLetter(formattingData)
+      this.$store.dispatch('setGuest', {firstname: formattingData})
+    },
+    capitalizeFirstLetter (string) {
+      return string[0].toUpperCase() + string.slice(1)
     }
   },
   mounted () {

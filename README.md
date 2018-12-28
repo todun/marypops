@@ -22,4 +22,6 @@
 
 ## FONCTIONNALITES
 
-* to do
+* disable input code if more than 3 attempts
+* display message error for inputs
+* track if guests already visited the site

@@ -1,18 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Guest from '@/components/Guest'
-import GuestName from '@/components/GuestName'
-import GuestLink from '@/components/GuestLink'
-import GuestIdentity from '@/components/GuestIdentity'
-import Home from '@/components/Home'
-import Contact from '@/components/Contact'
-import Place from '@/components/Place'
-import Hostel from '@/components/Hostel'
-import Gift from '@/components/Gift'
-import Form from '@/components/Form'
-import Redirect404 from '@/components/Redirect404'
-let token
-
+import Guest from '@/components/guest/Guest'
+import GuestLink from '@/components/guest/GuestLink'
+import GuestName from '@/components/guest/GuestName'
+import GuestIdentity from '@/components/guest/GuestIdentity'
+import GuestWrongIdentity from '@/components/guest/GuestWrongIdentity'
+import GuestConfirmIdentity from '@/components/guest/GuestConfirmIdentity'
+import GuestNotFound from '@/components/guest/GuestNotFound'
+import GuestData from '@/components/guest/GuestData'
+import GuestAccess from '@/components/guest/GuestAccess'
+import Home from '@/components/pages/Home'
+import Contact from '@/components/pages/Contact'
+import Place from '@/components/pages/Place'
+import Hostel from '@/components/pages/Hostel'
+import Gift from '@/components/pages/Gift'
+import Form from '@/components/pages/Form'
+import Redirect404 from '@/components/pages/Redirect404'
+import store from '../store'
 Vue.use(Router)
 
 export default new Router({
@@ -27,24 +31,105 @@ export default new Router({
           path: '/guest/link',
           name: 'GuestLink',
           component: GuestLink,
-          props: true
-          // beforeEnter (to, from, next) {
-          //   if () {
-          //     next()
-          //   } else {
-          //     next({name: 'Redirect404'})
-          //   }
-          // }
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
         },
         {
           path: '/guest/name',
           name: 'GuestName',
-          component: GuestName
+          component: GuestName,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
         },
         {
           path: '/guest/identity',
           name: 'GuestIdentity',
-          component: GuestIdentity
+          component: GuestIdentity,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/find-identity',
+          name: 'GuestWrongIdentity',
+          component: GuestWrongIdentity,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/confirm-identity',
+          name: 'GuestConfirmIdentity',
+          component: GuestConfirmIdentity,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/not-found-contact',
+          name: 'GuestNotFound',
+          component: GuestNotFound,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/data',
+          name: 'GuestData',
+          component: GuestData,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
+        },
+        {
+          path: '/guest/access',
+          name: 'GuestAccess',
+          component: GuestAccess,
+          props: true,
+          beforeEnter (to, from, next) {
+            if (store.state.token) {
+              next()
+            } else {
+              next({name: 'Guest'})
+            }
+          }
         }
       ]
     },
@@ -57,8 +142,22 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
+      props: true
+      // beforeEnter (to, from, next) {
+      //   if (store.state.token) {
+      //     next()
+      //   } else {
+      //     next({name: 'Guest'})
+      //   }
+      // }
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact,
+      props: true,
       beforeEnter (to, from, next) {
-        if (token) {
+        if (store.state.token) {
           next()
         } else {
           next({name: 'Guest'})
@@ -66,29 +165,56 @@ export default new Router({
       }
     },
     {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact
-    },
-    {
       path: '/place',
       name: 'Place',
-      component: Place
+      component: Place,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/hostel',
       name: 'Hostel',
-      component: Hostel
+      component: Hostel,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/gift',
       name: 'Gift',
-      component: Gift
+      component: Gift,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/form',
       name: 'Form',
-      component: Form
+      component: Form,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     }
   ]
 })

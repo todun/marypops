@@ -16,17 +16,26 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-bottom: 3em;
+      margin-bottom: 2em;
       h2 {
         text-align: center;
         line-height: 1.5em;
       }
     }
-    div {
-      width: 80%;
+    .btn-wrapper {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      &__column {
+        flex-direction: column;
+        align-items: center;
+        a {
+          margin: 1.5rem 0;
+        }
+      }
+      &__row {
+        width: 80%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
   }
   .particles-js-canvas-el {
