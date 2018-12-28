@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use((req, res, next) => {
   req.body = Object.entries(req.body).reduce((acc, [key, value]) => {
+    // eslint-disable-next-line
     acc[key] = (typeof value === 'string') ? value.replace(/\'/g, '\'\'') : value
     return acc
   }, {})
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
 
 // Routes et Controller :
 app.get('/', (req, res) => {
-  res.send('coucou')
+  res.send('nothing to see')
 })
 
 app.use('/guests', require('./Controllers/guestsController'))

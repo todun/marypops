@@ -34,11 +34,12 @@ export default {
   },
   methods: {
     onSubmit () {
-      this.$store.dispatch('setToken', {token: this.inputToken})
+      let formattingData = this.inputToken.trim().toUpperCase()
+      this.$store.dispatch('setToken', {token: formattingData})
     }
   }
 }
 </script>
 <style lang="sass">
-@import '../assets/sass/guest'
+@import '../../assets/sass/guest'
 </style>
