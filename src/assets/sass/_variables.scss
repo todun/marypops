@@ -1,0 +1,32 @@
+// BREAKPOINTS RESPONSIVENESS
+$mobile: 425px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1440px;
+
+// BASIC COLORS
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$grey: #D9D9D9;
+$cream: #FBFCFA;
+$yellow: #FFDE59;
+$blue: #5CE1E6;
+$orange: #FF914D;
+
+// TYPOGRAPHIE
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Signika:400,700');
+$font-title: 'Signika:700', sans-serif;
+$font-content: 'Lato', sans-serif;
+
+// SIZES
+$size-extra-small: 0.75rem;
+$size-small: 1rem;
+$size-small-medium: 1.25rem;
+$size-medium: 1.5rem;
+$size-large: 24px;
+$size-extra-large: 3rem;
+
+//
+$container-large-width: 1140px;
+$container-medium-width: 840px;
+$container-small-width: 425px;
