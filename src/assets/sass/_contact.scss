@@ -1,0 +1,14 @@
+.contact {
+  width: 100%;
+  &--or {
+    color: $blue
+  }
+  &__content {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid $orange;
+    h3 {
+      margin: 0.6em auto;
+    }
+  }
+}

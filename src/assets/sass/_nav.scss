@@ -23,8 +23,8 @@
     transform: translate3d(-100%, 0, 0);
   }
 }
-
 nav {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
@@ -34,6 +34,20 @@ nav {
   width: 85%;
   background-color: $white;
   box-shadow: 0 0 10px $grey;
+}
+.nav-side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(232, 236, 241, 0.6);
+}
+li.active {
+  color: $orange;
+  border-bottom: 1px solid $blue;
 }
 .anim-from-left {
   -webkit-animation-name: fadeInLeft;
@@ -47,30 +61,33 @@ nav {
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
 }
-.nav-side {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(232, 236, 241, 0.6);
-}
 ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 50vh;
+  width: 95%;
   margin-top: 8vh;
 }
 li {
   list-style-type: none;
-}
-.nav-link {
   text-decoration: none;
   color: $black;
-  &:hover {
-    color: $orange;
-  }
+}
+li:hover {
+  color: $orange;
+}
+.menu-enter-active,
+.menu-side-enter-active  {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+.menu-leave-active,
+.menu-side-leave-active {
+  -webkit-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
