@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <img src="../../assets/icons/menu.svg" alt="icon-menu" @click="openMenu = true">
+      <img src="../../assets/icons/menu.svg" v-if="token &&seeEvent" alt="icon-menu" @click="openMenu = true">
       <h1>Jana<span>&</span>Olivia</h1>
     </header>
     <transition name="menu">
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -33,6 +34,12 @@ export default {
     '$route' (to, from) {
       this.openMenu = false
     }
+  },
+  computed: {
+    ...mapState({
+      token: state => state.token,
+      seeEvent: state => state.seeEvent
+    })
   },
   methods: {
   }

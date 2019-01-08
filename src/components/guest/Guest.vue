@@ -23,7 +23,8 @@ export default {
   name: 'Guest',
   computed: {
     ...mapState({
-      token: state => state.token
+      token: state => state.token,
+      seeEvent: state => state.seeEvent
     })
   },
   data () {

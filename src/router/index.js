@@ -137,14 +137,14 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/contact',
