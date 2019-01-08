@@ -9,6 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: null,
+    seeEvent: false,
     guest: {
       firstname: null,
       lastname: null,
@@ -24,6 +25,10 @@ export default new Vuex.Store({
   mutations: {
     mutateToken (state, token) {
       state.token = token
+    },
+
+    mutateSeeEvent (state, seeEvent) {
+      state.seeEvent = seeEvent
     },
 
     mutateGuestInfo (state, guest) {
@@ -49,6 +54,12 @@ export default new Vuex.Store({
           token: true
         })
         router.push({name: 'GuestLink'})
+      })
+    },
+
+    setSeeEvent ({commit}) {
+      commit('mutateSeeEvent', {
+        seeEvent: true
       })
     },
 

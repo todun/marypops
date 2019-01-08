@@ -8,7 +8,7 @@
         <h2>Notre heureux événement...</h2>
       </article>
       <div class="btn-wrapper btn-wrapper__column">
-        <a class="btn btn--orange" @click="(() => { this.$router.push({name: 'Home'})})">Voir l'événement</a>
+        <a class="btn btn--orange" @click="seeEvent">Voir l'événement</a>
       </div>
     </section>
   </section>
@@ -22,6 +22,12 @@ export default {
     ...mapState({
       guest: state => state.guest
     })
+  },
+  methods: {
+    seeEvent () {
+      this.$store.dispatch('setSeeEvent', {seeEvent: true})
+      this.$router.push({name: 'Home'})
+    }
   }
 }
 </script>

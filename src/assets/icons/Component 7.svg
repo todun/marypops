@@ -1,5 +1,3 @@
-<template>
-  <section class="container">
 <svg width="272" height="258" viewBox="0 0 272 258" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M65.6622 103.567C67.5832 100.216 72.4168 100.216 74.3378 103.567L126.33 194.263C128.241 197.597 125.834 201.75 121.992 201.75H18.0078C14.1656 201.75 11.7592 197.597 13.67 194.263L65.6622 103.567Z" fill="#C4C4C4"/>
 <path d="M49.8272 240.117C48.4967 245.046 41.5033 245.046 40.1728 240.117L31.1129 206.553C30.2552 203.375 32.6487 200.25 35.9401 200.25L54.0599 200.25C57.3513 200.25 59.7449 203.375 58.8871 206.553L49.8272 240.117Z" fill="#C4C4C4"/>
@@ -9,49 +7,6 @@
 <path d="M181.827 240.117C180.497 245.046 173.503 245.046 172.173 240.117L163.113 206.553C162.255 203.375 164.649 200.25 167.94 200.25L186.06 200.25C189.351 200.25 191.745 203.375 190.887 206.553L181.827 240.117Z" fill="#C4C4C4"/>
 <path d="M232.827 240.117C231.497 245.046 224.503 245.046 223.173 240.117L214.113 206.553C213.255 203.375 215.649 200.25 218.94 200.25L237.06 200.25C240.351 200.25 242.745 203.375 241.887 206.553L232.827 240.117Z" fill="#C4C4C4"/>
 <path d="M135.112 132.618C131.204 129.094 134.873 122.749 139.987 124.189L174.254 133.838C177.369 134.715 178.807 138.223 177.195 141.012L169.118 154.98C167.505 157.768 163.684 158.382 161.302 156.235L135.112 132.618Z" fill="#C4C4C4"/>
-<rect x="150" width="104" height="104" fill="#C4C4C4"/>
 <rect x="18" width="104" height="104" fill="#C4C4C4"/>
+<rect x="150" width="104" height="104" fill="#C4C4C4"/>
 </svg>
-<div class="jana"></div>
-<div class="olivia"></div>
-  </section>
-</template>
-
-<script>
-export default {
-  methods: {
-    draw () {
-      let c = document.getElementById('anim-home')
-      let ctx = c.getContext('2d')
-      let x = 0
-      let y = 30
-      let endX = 80
-      // let endY = 110
-      ctx.beginPath()
-      // ctx.moveTo(x, y)
-      // ctx.lineTo(x + 80, y)
-      // ctx.lineTo(100, 50)
-      // ctx.lineTo(80, 70)
-      // ctx.lineTo(20, 70)
-      // ctx.lineTo(0, 90)
-      // ctx.lineTo(20, 110)
-      // ctx.lineTo(100, 110)
-      // ctx.stroke()
-      ctx.lineWidth = 2
-      ctx.strokeStyle = 'blue'
-
-      let amount = 0
-      setInterval(function () {
-        amount += 0.02
-        // ctx.clearRect(0, 0, c.width, c.height)
-        ctx.moveTo(x, y)
-        ctx.lineTo(x + (endX - x) * amount, y)
-        ctx.stroke()
-      }, 30)
-    }
-  },
-  mounted () {
-    // window.requestAnimationFrame(this.draw)
-  }
-}
-</script>

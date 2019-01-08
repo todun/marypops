@@ -12,13 +12,9 @@
 
 ![VISUEL](https://github.com/oliviapycz/MaryPops/raw/master/MOODBOARD.png)
 
-## WIREFRAME
-
-* to do
-
 ## MAQUETTE
 
-* to do
+![VISUEL](https://github.com/oliviapycz/MaryPops/raw/master/maquette.png)
 
 ## FONCTIONNALITES
 
