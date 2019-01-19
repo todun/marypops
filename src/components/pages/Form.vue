@@ -1,9 +1,7 @@
 <template>
-  <section class="container">
+  <section class="">
+    <h1 class="page-title">Présence</h1>
     <section class="container__content">
-      <article>
-        <h2>Présence</h2>
-      </article>
       <form @submit.prevent="onSubmit">
         <div class="radio">
           <input type="radio" id="no" :value="b" v-model="picked">

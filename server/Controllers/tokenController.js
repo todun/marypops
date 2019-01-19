@@ -15,9 +15,8 @@ app.post('/', (req, res) => {
   model.getToken()
     .then(result => {
       if (token === result.rows[0].token) {
-        return res.json(result.rows)
+        res.json(result.rows)
       }
-      return ''
     })
     .catch(err => res.json(err))
 })

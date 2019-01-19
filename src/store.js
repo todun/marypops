@@ -55,6 +55,7 @@ export default new Vuex.Store({
         })
         router.push({name: 'GuestLink'})
       })
+      .catch(err => res.json(err))
     },
 
     setSeeEvent ({commit}) {

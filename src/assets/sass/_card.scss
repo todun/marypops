@@ -1,0 +1,56 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 3px rgba($orange, 0.5);
+  border-radius: 0.5em;
+  // padding: 0.2rem 1rem;
+  margin: 1.5rem;
+  transition:  all 0.4s;
+  transform: translateY(0);
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+  }
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow:  0 0.5rem 2rem 0 rgba($orange, 0.7);
+  }
+  &__background {
+    margin: 0;
+    padding: 0;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    padding-top: 1rem;
+  }
+  .ferme_moulineaux {
+    background-image: url("./assets/images/ferme_moulineaux.jpg");
+  }
+  .ferme_pontaly {
+    background-image: url("./assets/images/ferme_pontaly.jpg");
+  }
+  .charmilles_cordeliers {
+    background-image: url("./assets/images/charmilles_cordeliers.jpg");
+  }
+  &__title {
+    box-shadow: 0 1px 2px rgba($blue, 0.8);
+    background-color: rgba($white, 0.8);
+    border-radius: 0.2em;
+    text-align: center;
+    margin: 0 1rem;
+    padding: 0.5em;
+    font-size: 16px;
+  }
+  &__content {
+    padding: 0.2rem 0.8rem;
+    p {
+      font-size: 14px;
+    }
+  }
+}
