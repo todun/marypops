@@ -6,6 +6,7 @@ import router from './router/index';
 
 Vue.use(Vuex)
 
+
 export default new Vuex.Store({
   state: {
     token: null,
@@ -51,7 +52,7 @@ export default new Vuex.Store({
 
   actions: {
     setToken ({commit}, token) {
-      axios.post('/api/token', {
+      axios.post(`/api/token`, {
         token: token.token
       })
       .then(res => {
