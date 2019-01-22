@@ -8,6 +8,7 @@ yarn-error.log*
 /client/node_modules/
 /server/.env
 .env
+backup
 
 # Editor directories and files
 .idea
