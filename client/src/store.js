@@ -77,14 +77,19 @@ export default new Vuex.Store({
     setGuest ({commit}, guest) {
       axios.get(`/api/guests/${guest.firstname}`)
         .then(res => {
-          commit('mutateGuestInfo', {
-            firstname: res.data[0].firstname,
-            lastname: res.data[0].lastname,
-            link: res.data[0].link
-          })
-        })
-        .then(() => {
-          router.push({name: 'GuestIdentity'})
+          console.log('res', res)
+          if (res.data.length > 0) {
+            commit('mutateGuestInfo', {
+              firstname: res.data[0].firstname,
+              lastname: res.data[0].lastname,
+              link: res.data[0].link
+            })
+              router.push({name: 'GuestIdentity'})
+          } else {
+            commit('mutateGuestInfo', {
+              firstname: ''
+            })
+          }
         })
         .catch(error => console.log(error))
     },
@@ -92,14 +97,20 @@ export default new Vuex.Store({
     setGuestWithLastname ({commit}, guest) {
       axios.get(`/api/guests/${guest.lastname}/${guest.firstname}`)
         .then(res => {
-          commit('mutateGuestInfo', {
-            firstname: res.data[0].firstname,
-            lastname: res.data[0].lastname,
-            link: res.data[0].link
-          })
-        })
-        .then(() => {
-          router.push({name: 'GuestConfirmIdentity'})
+          console.log('res setGuestWithLastname', res)
+          if (res.data.length > 0) {
+            commit('mutateGuestInfo', {
+              firstname: res.data[0].firstname,
+              lastname: res.data[0].lastname,
+              link: res.data[0].link
+            })
+            router.push({name: 'GuestConfirmIdentity'})
+          } else {
+            commit('mutateGuestInfo', {
+              firstname: this.state.guest.firstname,
+              lastname: ''
+            })
+          }
         })
         .catch(error => console.log(error))
     },

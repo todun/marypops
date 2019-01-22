@@ -11,13 +11,19 @@
         <input type="submit" value="Valider!" class="btn btn--orange btn--input">
       </form>
     </section>
+     <p class="errors" v-if="guest.firstname === ''"> On ne vous a pas trouvé... Mais pouvez réessayer!<br> (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
   </section>
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 export default {
   name: 'GuestName',
+  computed: {
+    ...mapState({
+      guest: state => state.guest
+    })
+  },
   data () {
     return {
       firstname: ''
@@ -132,5 +138,3 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-</style>
