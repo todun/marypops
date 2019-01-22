@@ -12,7 +12,8 @@ app.get('/guests/:firstname', (req, res) => {
   const {firstname} = req.params
   model.getGuestByFirstname(firstname)
     .then(result => {
-      res.json(result.rows)
+      console.log(result.rows)
+      return res.json(result.rows)
     })
     .catch(err => res.json(err))
 })
@@ -23,7 +24,7 @@ app.get('/guests/:lastname/:firstname', (req, res) => {
   model.getGuestByFirstnameAndLastname({firstname, lastname})
     .then(result => {
       console.log('res', result.rows)
-      res.json(result.rows)
+      return res.json(result.rows)
     })
     .catch(err => res.json(err))
 })
