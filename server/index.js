@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
   res.send('nothing to see')
 })
 
-app.use('/guests', require('./Controllers/guestsController'))
-app.use('/token', require('./Controllers/tokenController'))
+app.use('/api', require('./Controllers/guestsController'))
+app.use('/api', require('./Controllers/tokenController'))
 
 // app.listen(3000, err => {
 //   if (err) {

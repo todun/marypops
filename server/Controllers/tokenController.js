@@ -10,7 +10,7 @@ const model = require('../Models/tokenModel')
 //     .catch(err => res.json(err))
 // })
 
-app.post('/api/token', (req, res) => {
+app.post('/token', (req, res) => {
   const {token} = req.body
   model.getToken()
     .then(result => {
