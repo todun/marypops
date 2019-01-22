@@ -11,6 +11,7 @@
         <input type="submit" value="Valider!" class="btn btn--orange btn--input">
       </form>
     </section>
+    <p  class="errors" v-if="guest.lastname === ''"> Oh bah on ne vous trouve pas...Mais pouvez réessayer! (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
   </section>
 </template>
 

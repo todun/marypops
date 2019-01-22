@@ -92,3 +92,9 @@ li:hover {
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
 }
+
+@media only screen and (min-device-width: 768px) {
+  nav {
+    width: 30% !important;
+  }
+}

@@ -10,7 +10,7 @@
                    :lineLinked="true"
                    :lineOpacity="0.4"
                    :linesDistance="50"
-                   :moveSpeed="3">
+                   :moveSpeed="0.5">
     </vue-particles>
     <section class="container__content">
       <article>
