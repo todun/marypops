@@ -51,7 +51,7 @@ export default new Vuex.Store({
 
   actions: {
     setToken ({commit}, token) {
-      axios.post('http://localhost:3000/token', {
+      axios.post('/token', {
         token: token.token
       })
       .then(res => {
@@ -74,7 +74,7 @@ export default new Vuex.Store({
     },
 
     setGuest ({commit}, guest) {
-      axios.get(`http://localhost:3000/guests/${guest.firstname}`)
+      axios.get(`guests/${guest.firstname}`)
         .then(res => {
           commit('mutateGuestInfo', {
             firstname: res.data[0].firstname,
@@ -89,8 +89,8 @@ export default new Vuex.Store({
     },
 
     setGuestWithLastname ({commit}, guest) {
-      console.log(`http://localhost:3000/guests/${guest.firstname}&${guest.lastname}`)
-      axios.get(`http://localhost:3000/guests/${guest.lastname}/${guest.firstname}`)
+      console.log(`guests/${guest.firstname}&${guest.lastname}`)
+      axios.get(`guests/${guest.lastname}/${guest.firstname}`)
         .then(res => {
           commit('mutateGuestInfo', {
             firstname: res.data[0].firstname,
@@ -106,7 +106,7 @@ export default new Vuex.Store({
 
     setGuestData ({commit}, guest) {
       console.log('setGuestData', guest)
-      axios.put(`http://localhost:3000/guests`, guest)
+      axios.put(`/guests`, guest)
         .then(res => {
           console.log('res', res)
           commit('mutateGuestData', {
@@ -123,7 +123,7 @@ export default new Vuex.Store({
 
     setGuestResponse({commit}, guest) {
       console.log('setGuestResponse', guest)
-      axios.put(`http://localhost:3000/guests`, guest)
+      axios.put(`/guests`, guest)
         .then(res => {
           console.log('res', res)
         })
