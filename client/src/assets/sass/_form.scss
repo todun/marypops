@@ -6,9 +6,10 @@ form {
     border: none;
     border-bottom: 1px solid $blue;
     text-align: center;
-    padding-bottom: 0.2rem;
-    height: 38px;
-    background-color: $cream;
+    // padding-bottom: 0.2rem;
+    // height: 38px;
+    background-color: transparent;
+    margin-bottom: 2em;
     &::placeholder {
       color: $grey;
       font-family: $font-title;

@@ -20,6 +20,7 @@ body {
 h1 {
   font-size: $size-large;
   font-family: $font-title;
+  font-weight: 700;
 }
 
 h2 {
@@ -32,6 +33,7 @@ h3 {
   font-size: $size-small;
   font-family: $font-content;
 }
+
 .page-title {
   margin-top: 2em; 
   text-align: center;
@@ -63,17 +65,3 @@ h3 {
     justify-content: space-around;
   }
 }
-// main
-//   margin: 1vh
-//   min-height: calc(100vh - 10vh)
-
-// section
-//   margin: 1vh auto
-//   display: flex
-//   justify-content: space-around
-//   flex-wrap: wrap
-
-// article
-//   display: block
-//   margin: 5px 0
-

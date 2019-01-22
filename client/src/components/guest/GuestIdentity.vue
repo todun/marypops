@@ -8,7 +8,7 @@
       </article>
       <div class="btn-wrapper btn-wrapper__column">
         <a class="btn btn--orange" @click="(() => { this.$router.push({name: 'GuestData'})})">C'est bien moi!</a>
-        <a class="btn" @click="(() => { this.$router.push({name: 'GuestWrongIdentity'})})">Ah non mauvais {{guest.firstname}}...</a>
+        <a class="btn" @click="(() => { this.$router.push({name: 'GuestWrongIdentity'})})">Ah non mauvais.e {{guest.firstname}}...</a>
       </div>
     </section>
   </section>
