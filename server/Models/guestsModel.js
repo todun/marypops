@@ -21,5 +21,19 @@ module.exports = {
       address='${address}'
     WHERE firstname='${firstname}'
     AND lastname='${lastname}'`)
+  },
+
+  addGuestResponse ({firstname, lastname, alone, brunch, coming, hasChildren, loverFirstname, children, song}) {
+    console.log('res addGuestResponse brunch', firstname)
+    return db.query(`UPDATE public."Guests" SET 
+      alone='${alone}',
+      brunch='${brunch}',
+      coming='${coming}',
+      has_children='${hasChildren}',
+      lover_firstname='${loverFirstname}',
+      children='${children}',
+      song='${song}'
+    WHERE firstname='${firstname}'
+    AND lastname='${lastname}'`)
   }
 }

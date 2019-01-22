@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section class="page-container">
     <h1 class="page-title">Contactez-nous</h1>
     <section class="contact">
       <div class="contact__content">

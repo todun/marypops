@@ -18,19 +18,50 @@ body {
 }
 
 h1 {
-  font-size: $size-medium;
+  font-size: $size-large;
   font-family: $font-title;
 }
 
 h2 {
-  font-size: $size-large;
+  font-size: $size-medium;
   font-family: $font-title;
   font-weight: 400;
 }
 
+h3 {
+  font-size: $size-small;
+  font-family: $font-content;
+}
 .page-title {
   margin-top: 2em; 
   text-align: center;
+}
+.page-subtitle {
+  text-align: center;
+}
+.page-container {
+  height: calc(100vh - 8vh);
+}
+
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .section-container {
+    align-items: center;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) {
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 // main
 //   margin: 1vh

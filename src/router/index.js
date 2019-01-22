@@ -15,6 +15,7 @@ import Place from '@/components/pages/Place'
 import Hostel from '@/components/pages/Hostel'
 import Gift from '@/components/pages/Gift'
 import Form from '@/components/pages/Form'
+import Utils from '@/components/pages/Utils'
 import Redirect404 from '@/components/pages/Redirect404'
 import store from '../store'
 Vue.use(Router)
@@ -137,79 +138,92 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/contact',
       name: 'Contact',
       component: Contact,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/place',
       name: 'Place',
       component: Place,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/hostel',
       name: 'Hostel',
       component: Hostel,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/gift',
       name: 'Gift',
       component: Gift,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/form',
       name: 'Form',
       component: Form,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
+    },
+    {
+      path: '/utils',
+      name: 'Utils',
+      component: Utils,
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '*',

@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     token: null,
     seeEvent: false,
+    inputError: false,
     guest: {
       firstname: null,
       lastname: null,
@@ -18,7 +19,12 @@ export default new Vuex.Store({
       phone: null,
       address: null,
       alone: null,
-      children: null
+      brunch: null,
+      coming: null,
+      loverFirstname: null,
+      hasChildren: null,
+      children: null,
+      song: null
     }
   },
 
@@ -49,13 +55,16 @@ export default new Vuex.Store({
         token: token.token
       })
       .then(res => {
-        console.log('response', res)
+        console.log('response in store token', res)
         commit('mutateToken', {
           token: true
         })
         router.push({name: 'GuestLink'})
       })
-      .catch(err => res.json(err))
+      .catch(err =>{
+        console.log('in err store', err)
+        this.state.inputError = true
+      })
     },
 
     setSeeEvent ({commit}) {
@@ -96,6 +105,7 @@ export default new Vuex.Store({
     },
 
     setGuestData ({commit}, guest) {
+      console.log('setGuestData', guest)
       axios.put(`http://localhost:3000/guests`, guest)
         .then(res => {
           console.log('res', res)
@@ -107,6 +117,18 @@ export default new Vuex.Store({
         })
         .then(() => {
           router.push({name: 'GuestAccess'})
+        })
+        .catch(error => console.log(error))
+    },
+
+    setGuestResponse({commit}, guest) {
+      console.log('setGuestResponse', guest)
+      axios.put(`http://localhost:3000/guests`, guest)
+        .then(res => {
+          console.log('res', res)
+        })
+        .then(() => {
+         console.log('done')
         })
         .catch(error => console.log(error))
     }
