@@ -5,6 +5,7 @@
   display: inline-block;
   text-decoration: none;
   text-align: center;
+  cursor: pointer;
   &:hover {
     background-color: $blue;
   }

@@ -1,7 +1,8 @@
 <template>
   <section class="">
-    <h1 class="page-title">Hébergement</h1>
-    <article class="card" v-for="hostel in hostels" :key="hostel.index">
+    <h1 class="page-title">Hébergements</h1>
+    <section class="section-container">
+      <article class="card" v-for="hostel in hostels" :key="hostel.index">
       <a :href="hostel.link" target="_blank">
         <div class="card__background" :class="hostel.url">
           <h2 class="card__title">{{ hostel.title }}</h2>
@@ -11,6 +12,7 @@
         </div>
       </a>
     </article>
+    </section>
   </section>
 </template>
 
