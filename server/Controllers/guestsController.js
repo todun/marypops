@@ -2,13 +2,13 @@ const express = require('express')
 const app = express.Router()
 const model = require('../Models/guestsModel')
 
-app.get('/', (req, res) => {
+app.get('/api/guests', (req, res) => {
   model.getGuests()
     .then(result => res.json(result.rows))
     .catch(err => res.json(err))
 })
 
-app.get('/:firstname', (req, res) => {
+app.get('/api/guests/:firstname', (req, res) => {
   const {firstname} = req.params
   model.getGuestByFirstname(firstname)
     .then(result => {
@@ -17,7 +17,7 @@ app.get('/:firstname', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.get('/:lastname/:firstname', (req, res) => {
+app.get('/api/guests/:lastname/:firstname', (req, res) => {
   const {firstname, lastname} = req.params
   console.log('param', req.params)
   model.getGuestByFirstnameAndLastname({firstname, lastname})
@@ -28,7 +28,7 @@ app.get('/:lastname/:firstname', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.put('/', (req, res) => {
+app.put('/api/guests/', (req, res) => {
   if (req.body.formData) {
     console.log('req.body.formData first', req.body.formData)
     const {firstname, lastname, email, phone, address} = req.body.formData
