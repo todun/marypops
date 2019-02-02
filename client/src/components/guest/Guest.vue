@@ -1,9 +1,10 @@
 <template>
   <section style="height: 86vh">
 
-    <section class="container" v-if="!token">
-      <canvas id="anim-guestname"></canvas>
-      <section class="container__content">
+    <section class="container" id="container" v-if="!token">
+      <canvas id="anim-guest"></canvas>
+      <img class="img_anim" src="../../assets/images/not_blurred.jpg">
+      <section class="container__content guest_container">
         <article>
           <h2>Merci d'être ici!</h2>
           <h2>Veuillez entrer votre code</h2>
@@ -52,101 +53,132 @@ export default {
   mounted () {
     this.msgErr = this.inputError
 
-    var Canvas = document.getElementById('anim-guestname')
-    var ctx = Canvas.getContext('2d')
+    let image = document.querySelector('img')
+    let imageCanvas = document.getElementById('anim-guest')
+    let imageCanvasContext = imageCanvas.getContext('2d')
+    let lineCanvas = document.createElement('canvas')
+    let lineCanvasContext = lineCanvas.getContext('2d')
+    let pointLifetime = 1000
+    let points = []
 
-    var resize = function () {
-      Canvas.width = Canvas.clientWidth
-      Canvas.height = Canvas.clientHeight
+    if (image.complete) {
+      start()
+    } else {
+      image.onload = start
     }
-    window.addEventListener('resize', resize)
-    resize()
 
-    var elements = []
-    var presets = {}
+    /**
+     * Attaches event listeners and starts the effect.
+     */
+    function start () {
+      document.addEventListener('mousemove', onMouseMove)
+      window.addEventListener('resize', resizeCanvases)
+      resizeCanvases()
+      tick()
+    }
 
-    presets.o = function (x, y, s, dx, dy) {
-      return {
-        x: x,
-        y: y,
-        r: 12 * s,
-        w: 5 * s,
-        dx: dx,
-        dy: dy,
-        draw: function (ctx, t) {
-          this.x += this.dx
-          this.y += this.dy
+    /**
+     * Records the user's cursor position.
+     *
+     * @param {!MouseEvent} event
+     */
+    function onMouseMove (event) {
+      points.push({
+        time: Date.now(),
+        x: event.clientX,
+        y: event.clientY
+      })
+    }
 
-          ctx.beginPath()
-          ctx.arc(this.x + +Math.sin((50 + x + (t / 10)) / 100) * 3, this.y + +Math.sin((45 + x + (t / 10)) / 100) * 4, this.r, 0, 2 * Math.PI, false)
-          ctx.lineWidth = this.w
-          ctx.strokeStyle = '#FFDE59'
-          ctx.stroke()
-        }
+    /**
+     * Resizes both canvases to fill the window.
+     */
+    function resizeCanvases () {
+      imageCanvas.width = lineCanvas.width = window.innerWidth
+      imageCanvas.height = lineCanvas.height = window.innerHeight
+    }
+
+    /**
+     * The main loop, called at ~60hz.
+     */
+    function tick () {
+      // Remove old points
+      points = points.filter(function (point) {
+        let age = Date.now() - point.time
+        return age < pointLifetime
+      })
+
+      drawLineCanvas()
+      drawImageCanvas()
+      requestAnimationFrame(tick)
+    }
+
+    /**
+     * Draws a line using the recorded cursor positions.
+     *
+     * This line is used to mask the original image.
+     */
+    function drawLineCanvas () {
+      let minimumLineWidth = 25
+      let maximumLineWidth = 100
+      let lineWidthRange = maximumLineWidth - minimumLineWidth
+      let maximumSpeed = 50
+
+      lineCanvasContext.clearRect(0, 0, lineCanvas.width, lineCanvas.height)
+      lineCanvasContext.lineCap = 'round'
+      lineCanvasContext.shadowBlur = 30
+      lineCanvasContext.shadowColor = '#000'
+
+      for (let i = 1; i < points.length; i++) {
+        let point = points[i]
+        let previousPoint = points[i - 1]
+
+        // Change line width based on speed
+        let distance = getDistanceBetween(point, previousPoint)
+        let speed = Math.max(0, Math.min(maximumSpeed, distance))
+        let percentageLineWidth = (maximumSpeed - speed) / maximumSpeed
+        lineCanvasContext.lineWidth = minimumLineWidth + percentageLineWidth * lineWidthRange
+
+        // Fade points as they age
+        let age = Date.now() - point.time
+        let opacity = (pointLifetime - age) / pointLifetime
+        lineCanvasContext.strokeStyle = 'rgba(0, 0, 0, ' + opacity + ')'
+
+        lineCanvasContext.beginPath()
+        lineCanvasContext.moveTo(previousPoint.x, previousPoint.y)
+        lineCanvasContext.lineTo(point.x, point.y)
+        lineCanvasContext.stroke()
       }
     }
 
-    presets.x = function (x, y, s, dx, dy, dr, r) {
-      r = r || 0
-      return {
-        x: x,
-        y: y,
-        s: 20 * s,
-        w: 5 * s,
-        r: r,
-        dx: dx,
-        dy: dy,
-        dr: dr,
-        draw: function (ctx, t) {
-          this.x += this.dx
-          this.y += this.dy
-          this.r += this.dr
-
-          var _this = this
-          var line = function (x, y, tx, ty, c, o) {
-            o = o || 0
-            ctx.beginPath()
-            ctx.moveTo(-o + ((_this.s / 2) * x), o + ((_this.s / 2) * y))
-            ctx.lineTo(-o + ((_this.s / 2) * tx), o + ((_this.s / 2) * ty))
-            ctx.lineWidth = _this.w
-            ctx.strokeStyle = c
-            ctx.stroke()
-          }
-
-          ctx.save()
-
-          ctx.translate(this.x + Math.sin((x + (t / 10)) / 100) * 5, this.y + Math.sin((10 + x + (t / 10)) / 100) * 2)
-          ctx.rotate(this.r * Math.PI / 180)
-
-          line(-1, -1, 1, 1, '#FF914D')
-          line(1, -1, -1, 1, '#FF914D')
-
-          ctx.restore()
-        }
-      }
+    /**
+     * @param {{x: number, y: number}} a
+     * @param {{x: number, y: number}} b
+     * @return {number} The distance between points a and b
+     */
+    function getDistanceBetween (a, b) {
+      return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
     }
 
-    for (var x = 0; x < Canvas.width; x++) {
-      for (var y = 0; y < Canvas.height; y++) {
-        if (Math.round(Math.random() * 8000) === 1) {
-          var s = ((Math.random() * 5) + 1) / 10
-          if (Math.round(Math.random()) === 1) {
-            elements.push(presets.o(x, y, s, 0, 0))
-          } else {
-            elements.push(presets.x(x, y, s, 0, 0, ((Math.random() * 3) - 1) / 10, (Math.random() * 360)))
-          }
-        }
+    /**
+     * Draws the original image, masked by the line drawn in drawLineToCanvas.
+     */
+    function drawImageCanvas () {
+      // Emulate background-size: cover
+      let width = imageCanvas.width
+      let height = imageCanvas.width / image.naturalWidth * image.naturalHeight
+
+      if (height < imageCanvas.height) {
+        width = imageCanvas.height / image.naturalHeight * image.naturalWidth
+        height = imageCanvas.height
       }
+
+      imageCanvasContext.clearRect(0, 0, imageCanvas.width, imageCanvas.height)
+      imageCanvasContext.globalCompositeOperation = 'source-over'
+      imageCanvasContext.drawImage(image, 0, 0, width, height)
+      imageCanvasContext.globalCompositeOperation = 'destination-in'
+      imageCanvasContext.drawImage(lineCanvas, 0, 0)
     }
-
-    setInterval(function () {
-      ctx.clearRect(0, 0, Canvas.width, Canvas.height)
-
-      var time = new Date().getTime()
-      for (var e in elements) {
-        elements[e].draw(ctx, time)
-      }
-    }, 10)
   }
 }
 </script>

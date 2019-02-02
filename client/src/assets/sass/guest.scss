@@ -41,9 +41,18 @@
     }
   }
 
+
+  .guest_container {
+    background-color: white;
+    box-shadow: 0 2px 3px rgba(orange, 0.5);
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: auto 1em;
+  }
   @media only screen and (min-device-width: 768px) {
     .container {
       &__content {
+        z-index: 10;
         min-width: 25%;
         box-shadow: 0 2px 3px rgba(orange, 0.5);
         border-radius: 0.5em;
@@ -70,4 +79,24 @@
   left: 0;
   z-index: -1;
   background: #FBFCFA;
+}
+
+
+.img_anim {
+  display: none;
+}
+
+#container{
+  background: url("../../assets/images/blurred.jpg") 0 0 / cover;
+  width: 100%;
+  height: 100%;
+}
+
+#anim-guest {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // z-index: -1;
 }
