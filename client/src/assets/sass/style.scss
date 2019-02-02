@@ -88,23 +88,23 @@ main {
 .jana {
   width: 72px;
   height: 73px;
-  position: absolute;
+  position: relative;
   background-position: center;
   background-size: cover;
-  left: 171px;
-  bottom: 146px;
+  left: 18px;
+  bottom: 187px;
 }
 .olivia {
   width: 72px;
   height: 73px;
-  position: absolute;
+  position: relative;
   background-position: center;
   background-size: cover;
-  left: 77px;
-  bottom: 146px;
+  left: 112px;
+  bottom: 260px;
 }
 
-.olivia_profil{
+.olivia_profil {
   background-image: url("./assets/images/profil_olivia.png");
 }
 .olivia_profil_1{
@@ -126,13 +126,15 @@ main {
   background-image: url("./assets/images/profil_jana_2.png");
 }
 
-.girls {
-  position: absolute;
-  bottom: 35px;
-  left: calc(50% - 101px);
+.girls-wrapper {
+  position: relative;
+  margin: auto;
+  padding: 2em 0;
+  height: 36%;
 }
 .girls path,
 .girls rect {
+  position: relative;
   fill: none;
   stroke: #55CCEE;
   stroke-width: 3;

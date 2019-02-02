@@ -62,7 +62,7 @@
     <circle cx="46.5" cy="285.5" r="12.5" fill="#FF914D"/>
     <circle cx="58.5" cy="221.5" r="7.5" fill="#55CCEE"/>
   </svg> -->
-
+  <div class="girls-wrapper">
     <svg class="girls" width="202" height="185" viewBox="0 0 272 258" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M65.6622 103.567C67.5832 100.216 72.4168 100.216 74.3378 103.567L126.33 194.263C128.241 197.597 125.834 201.75 121.992 201.75H18.0078C14.1656 201.75 11.7592 197.597 13.67 194.263L65.6622 103.567Z" fill="#C4C4C4"/>
     <path d="M49.8272 240.117C48.4967 245.046 41.5033 245.046 40.1728 240.117L31.1129 206.553C30.2552 203.375 32.6487 200.25 35.9401 200.25L54.0599 200.25C57.3513 200.25 59.7449 203.375 58.8871 206.553L49.8272 240.117Z" fill="#C4C4C4"/>
@@ -77,6 +77,8 @@
     </svg>
     <div class="jana" :class="janaImg[i]"></div>
     <div class="olivia" :class="oliviaImg[i]"></div>
+  </div>
+
   </section>
 </template>
 
@@ -85,29 +87,28 @@ export default {
   data () {
     return {
       oliviaImg: [
+        'olivia_profil',
         '',
-        'olivia_profil_1',
         'olivia_profil_2'
       ],
       janaImg: [
+        'jana_profil',
         '',
-        'jana_profil_1',
         'jana_profil_2'
       ],
-      i: 0,
+      i: 1,
       y: 8000,
-      firstTime: false
+      firstTime: true
     }
   },
   methods: {
     changeImages () {
-      console.log('y', this.y)
       let x = setInterval(() => {
         if (this.firstTime) {
-          this.y = 2000
-          this.oliviaImg[0] = 'olivia_profil'
-          this.janaImg[0] = 'jana_profil'
+          this.oliviaImg[1] = 'olivia_profil_1'
+          this.janaImg[1] = 'jana_profil_1'
         }
+        this.y = 2000
         if (this.i < 2) {
           this.i = this.i + 1
         } else {
@@ -115,7 +116,7 @@ export default {
           this.i = 0
           this.changeImages()
         }
-        this.firstTime = true
+        this.firstTime = false
       }, this.y)
     }
   },
