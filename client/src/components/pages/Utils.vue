@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section class="page-container">
     <h1 class="page-title">Infos Utiles</h1>
     <h2 class="page-subtitle">Parce qu'on ne sait jamais...</h2>
     <article class="utils">

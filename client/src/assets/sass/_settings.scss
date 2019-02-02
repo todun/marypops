@@ -1,5 +1,5 @@
 /***********
-  GLOBAL SETTINGS  
+  GLOBAL SETTINGS
   ***********/
 
 html {
@@ -35,14 +35,16 @@ h3 {
 }
 
 .page-title {
-  margin-top: 2em; 
+  margin-top: 2em;
   text-align: center;
 }
 .page-subtitle {
   text-align: center;
 }
 .page-container {
-  height: calc(100vh - 8vh);
+  height: calc(100vh - 14vh);
+  display: flex;
+  flex-direction: column;
 }
 
 
