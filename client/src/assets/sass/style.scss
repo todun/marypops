@@ -86,34 +86,61 @@ main {
   left: 0;
 }
 .jana {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background-color: lightcoral;
-  left: 66px;
-  top: 71px;
+  width: 72px;
+  height: 73px;
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  left: 171px;
+  bottom: 146px;
 }
 .olivia {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background-color: lightcyan;
-  right: 66px;
-  top: -28px;
-}
-svg {
+  width: 72px;
+  height: 73px;
   position: absolute;
-  bottom: 50px;
+  background-position: center;
+  background-size: cover;
+  left: 77px;
+  bottom: 146px;
 }
-svg path,
-svg rect {
+
+.olivia_profil{
+  background-image: url("./assets/images/profil_olivia.png");
+}
+.olivia_profil_1{
+  background-image: url("./assets/images/profil_olivia_1.png");
+}
+.olivia_profil_2{
+  background-image: url("./assets/images/profil_olivia_2.png");
+}
+
+.jana_profil{
+  background-image: url("./assets/images/profil_jana.jpg");
+}
+
+.jana_profil_1{
+  background-image: url("./assets/images/profil_jana_1.png");
+}
+
+.jana_profil_2{
+  background-image: url("./assets/images/profil_jana_2.png");
+}
+
+.girls {
+  position: absolute;
+  bottom: 35px;
+  left: calc(50% - 101px);
+}
+.girls path,
+.girls rect {
   fill: none;
-  stroke: #C4C4C4;
+  stroke: #55CCEE;
   stroke-width: 3;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   -webkit-animation: dash 5s linear forwards;
   animation: dash 8s linear forwards;
+  animation-delay: 7s;
 }
 @-webkit-keyframes dash {
   to {
@@ -126,7 +153,81 @@ svg rect {
   }
 }
 
-svg img {
-  background-image: url("../src/assets/images/jardin_exterieur.jpg");
-  background-position: center;
+.svg-title-wrapper {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  .svg-title {
+    margin: auto;
+    display: flex;
+    width: auto;
+  }
+}
+
+text {
+  text-align: center;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+
+  }
+}
+
+.first-arrow,
+.second-arrow,
+.third-arrow{
+  opacity:0;
+  animation: fade 3s forwards;
+}
+.first-arrow{
+  animation-delay: 4.2s;
+}
+
+.second-arrow{
+  animation-delay: 5s;
+}
+
+.third-arrow{
+  animation-delay: 5.8s;
+}
+
+.route .anim-route {
+  fill: none;
+  stroke: #55CCEE;
+  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: lines 5s linear forwards;
+  animation: lines 4s linear forwards;
+  animation-delay: 2s;
+}
+// .anim-first {
+//   animation-delay: 0.2s;
+// }
+// .anim-second {
+//   animation-delay: 1.2s;
+// }
+// .anim-third {
+//   animation-delay: 2.2s;
+// }
+// .anim-fourth {
+//   animation-delay :3.2s;
+// }
+// .anim-fifth {
+//   animation-delay: 4.2s;
+// }
+
+
+@keyframes lines{
+  from{
+    stroke-dashoffset:-275;
+  }
+  to{
+    stroke-dashoffset:400;
+  }
 }
