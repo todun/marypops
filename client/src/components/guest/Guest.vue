@@ -13,7 +13,7 @@
           <input type="submit" value="Valider!" class="btn btn--orange btn--input">
         </form>
       </section>
-      <p class="errors" v-if="inputError && inputToken !== ''"> Le code n'est pas le bon....</p>
+      <p class="errors" v-if="msgErr && inputToken !== ''"> Le code n'est pas le bon....</p>
     </section>
     <router-view v-if="token"/>
 
@@ -42,10 +42,11 @@ export default {
       let formattingData = this.inputToken.trim().toUpperCase()
       this.$store.dispatch('setToken', {token: formattingData})
       this.msgErr = this.inputError
+      console.log('this.inputError', this.inputError)
+      console.log('this.msgErr', this.msgErr)
     },
     hideErrorMessage () {
-      console.log('in hide')
-      this.inputToken = ''
+      this.msgErr = false
     }
   },
   mounted () {

@@ -7,11 +7,11 @@
         <h2>Mais d'abord, quel est votre prénom?</h2>
       </article>
       <form @submit.prevent="onSubmit">
-        <input type="text" name="firstname" placeholder="Votre prénom" class="input" v-model="firstname">
+        <input type="text" name="firstname" placeholder="Votre prénom" class="input" v-model="firstname" @focus="hideErrorMessage">
         <input type="submit" value="Valider!" class="btn btn--orange btn--input">
       </form>
     </section>
-     <p class="errors" v-if="guest.firstname === ''"> On ne vous a pas trouvé... Mais pouvez réessayer!<br> (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
+     <p class="errors" v-if="guest.firstname === '' || msgErr"> On ne vous a pas trouvé... Mais pouvez réessayer!<br> (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
   </section>
 </template>
 
@@ -26,7 +26,8 @@ export default {
   },
   data () {
     return {
-      firstname: ''
+      firstname: '',
+      msgErr: false
     }
   },
   methods: {
@@ -37,9 +38,15 @@ export default {
     },
     capitalizeFirstLetter (string) {
       return string[0].toUpperCase() + string.slice(1)
+    },
+    hideErrorMessage () {
+      this.msgErr = false
     }
   },
   mounted () {
+    if (this.guest.firstname === '') {
+      this.msgErr = true
+    }
     var Canvas = document.getElementById('anim-guestname')
     var ctx = Canvas.getContext('2d')
 

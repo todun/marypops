@@ -12,8 +12,8 @@ Vue.use(VueParticles)
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 
-// axios.defaults.baseURL = 'http://localhost:3000'
-// axios.defaults.headers.get['Accepts'] = 'application/json'
+axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.headers.get['Accepts'] = 'application/json'
 
 /* eslint-disable no-new */
 new Vue({

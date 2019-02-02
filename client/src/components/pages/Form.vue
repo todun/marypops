@@ -49,20 +49,3 @@ export default {
   }
 }
 </script>
-<style lang="css">
-  .botui-message-content {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #FF914D;
-  }
-  .botui-message-content {
-    color: white;
-  }
-  .botui-actions-buttons-button {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #55CCEE;
-  }
-
-  @media (min-width: 400px) {
-    .botui-actions-text-submit {
-        display: inherit !important;
-    }
-  }
-</style>
