@@ -5,6 +5,9 @@
   display: inline-block;
   text-decoration: none;
   text-align: center;
+  color: $white;
+    font-family: $font-content;
+    letter-spacing: 0.1em;
   cursor: pointer;
   &:hover {
     background-color: $blue;

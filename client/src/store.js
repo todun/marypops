@@ -65,6 +65,8 @@ export default new Vuex.Store({
       .catch(err =>{
         console.log('in err store', err)
         this.state.inputError = true
+        console.log('this.msgErr .',this.msgErr )
+        return this.msgErr = true
       })
     },
 

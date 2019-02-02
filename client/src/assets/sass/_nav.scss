@@ -49,18 +49,6 @@ li.active {
   color: $orange;
   border-bottom: 1px solid $blue;
 }
-.anim-from-left {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-}
-.anim-left-right {
-  -webkit-animation-name: fadeOutLeft;
-  animation-name: fadeOutLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-}
 ul {
   display: flex;
   flex-direction: column;
