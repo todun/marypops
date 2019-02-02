@@ -25,7 +25,8 @@ export default new Vuex.Store({
       loverFirstname: null,
       hasChildren: null,
       children: null,
-      song: null
+      song: null,
+      fillForm: 1
     }
   },
 
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     mutateSeeEvent (state, seeEvent) {
       state.seeEvent = seeEvent
     },
+    mutateLink (state, guest) {
+      state.guest.link = guest.link
+    },
 
     mutateGuestInfo (state, guest) {
       state.guest.firstname = guest.firstname
@@ -47,6 +51,16 @@ export default new Vuex.Store({
       state.guest.email = guest.email
       state.guest.phone = guest.phone
       state.guest.address = guest.address
+    },
+    mutateGuestResponse (state, guest) {
+      state.guest.alone = guest.alone
+      state.guest.brunch = guest.brunch
+      state.guest.coming = guest.coming
+      state.guest.hasChildren = guest.hasChildren
+      state.guest.song = guest.song
+      state.guest.fillForm = guest.fillForm
+      state.guest.loverFirstname = guest.loverFirstname
+      state.guest.children = guest.children
     }
   },
 
@@ -76,20 +90,29 @@ export default new Vuex.Store({
       })
     },
 
+    setLink ({commit}, guest) {
+      console.log('link', guest)
+      commit('mutateLink', {
+        link: guest.link
+      })
+    },
+
     setGuest ({commit}, guest) {
-      axios.get(`/api/guests/${guest.firstname}`)
+      console.log('guest', guest)
+      axios.get(`/api/guests/${guest.link}/${guest.firstname}`)
         .then(res => {
           console.log('res', res)
           if (res.data.length > 0) {
             commit('mutateGuestInfo', {
               firstname: res.data[0].firstname,
               lastname: res.data[0].lastname,
-              link: res.data[0].link
+              link: res.data[0].link,
             })
               router.push({name: 'GuestIdentity'})
           } else {
             commit('mutateGuestInfo', {
-              firstname: ''
+              firstname: '',
+              link: guest.link
             })
           }
         })
@@ -97,14 +120,13 @@ export default new Vuex.Store({
     },
 
     setGuestWithLastname ({commit}, guest) {
-      axios.get(`/api/guests/${guest.lastname}/${guest.firstname}`)
+      axios.get(`/api/guests/${guest.link}/${guest.lastname}/${guest.firstname}`)
         .then(res => {
           console.log('res setGuestWithLastname', res)
           if (res.data.length > 0) {
             commit('mutateGuestInfo', {
               firstname: res.data[0].firstname,
               lastname: res.data[0].lastname,
-              link: res.data[0].link
             })
             router.push({name: 'GuestConfirmIdentity'})
           } else {
@@ -138,6 +160,16 @@ export default new Vuex.Store({
       axios.put(`/api/guests`, guest)
         .then(res => {
           console.log('res', res)
+          commit('mutateGuestResponse', {
+            alone: res.data[0].alone,
+            brunch: res.data[0].brunch,
+            coming: res.data[0].coming,
+            loverFirstname: res.data[0].lover_firstname,
+            hasChildren: res.data[0].has_children,
+            children: res.data[0].children,
+            song: res.data[0].song,
+            fillForm: res.data[0].fill_form
+          })
         })
         .then(() => {
          console.log('done')

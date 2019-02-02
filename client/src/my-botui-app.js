@@ -227,7 +227,7 @@ export function initBotApp () {
   function setSong () {
     botui.message.add({
       delay: 1000,
-      content: 'Juste une dernière chose, quelle est votre chanson préfére?'
+      content: 'Juste une dernière chose, quelle est votre chanson préfére pour un karaoké?'
     })
       .then(() => {
         return botui.action.text({

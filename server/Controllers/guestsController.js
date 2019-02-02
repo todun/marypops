@@ -8,9 +8,10 @@ app.get('/guests', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.get('/guests/:firstname', (req, res) => {
-  const {firstname} = req.params
-  model.getGuestByFirstname(firstname)
+app.get('/guests/:link/:firstname', (req, res) => {
+  const {link, firstname} = req.params
+  console.log('link controller', req.params)
+  model.getGuestByFirstname({link, firstname})
     .then(result => {
       console.log(result.rows)
       return res.json(result.rows)
@@ -18,10 +19,10 @@ app.get('/guests/:firstname', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.get('/guests/:lastname/:firstname', (req, res) => {
-  const {firstname, lastname} = req.params
+app.get('/guests/:link/:lastname/:firstname', (req, res) => {
+  const {link, firstname, lastname} = req.params
   console.log('param', req.params)
-  model.getGuestByFirstnameAndLastname({firstname, lastname})
+  model.getGuestByFirstnameAndLastname({link, firstname, lastname})
     .then(result => {
       console.log('res', result.rows)
       return res.json(result.rows)
@@ -32,10 +33,11 @@ app.get('/guests/:lastname/:firstname', (req, res) => {
 app.put('/guests/', (req, res) => {
   if (req.body.formData) {
     console.log('req.body.formData first', req.body.formData)
-    const {firstname, lastname, email, phone, address} = req.body.formData
-    model.addGuestData({firstname, lastname, email, phone, address})
+    const {link, firstname, lastname, email, phone, address} = req.body.formData
+    model.addGuestData({link, firstname, lastname, email, phone, address})
       .then(() => {
-        model.getGuestByFirstname(firstname)
+        console.log('before getGuestByFirstname')
+        model.getGuestByFirstname({link, firstname})
           .then(result => {
             console.log('res addGuestData getGuestByFirstname', result.rows)
             res.json(result.rows)
@@ -45,10 +47,10 @@ app.put('/guests/', (req, res) => {
       .catch(err => res.json(err))
   } else {
     console.log('req.body.resposne sec', req.body.response)
-    const {firstname, lastname, alone, coming, brunch, hasChildren, loverFirstname, children, song} = req.body.response
-    model.addGuestResponse({firstname, lastname, alone, brunch, coming, hasChildren, loverFirstname, children, song})
+    const {link, firstname, lastname, alone, coming, brunch, hasChildren, loverFirstname, children, song,fill_form} = req.body.response
+    model.addGuestResponse({link, firstname, lastname, alone, brunch, coming, hasChildren, loverFirstname, children, song, fill_form})
       .then(() => {
-        model.getGuestByFirstnameAndLastname(firstname, lastname)
+        model.getGuestByFirstnameAndLastname({link, firstname, lastname})
           .then(result => {
             console.log('res addGuestResponse getGuestByFirstnameAndLastname', result.rows)
             res.json(result.rows)

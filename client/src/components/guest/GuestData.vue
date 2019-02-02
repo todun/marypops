@@ -39,7 +39,8 @@ export default {
         lastname: this.guest.lastname,
         email: this.email,
         phone: this.phone,
-        address: this.address
+        address: this.address,
+        link: this.guest.link
       }
       console.log('formData', formData)
       this.$store.dispatch('setGuestData', {formData})

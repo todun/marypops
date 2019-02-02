@@ -6,26 +6,28 @@ module.exports = {
     return db.query('SELECT * FROM public."Guests"')
   },
 
-  getGuestByFirstname (firstname) {
-    return db.query(`SELECT * FROM public."Guests" WHERE firstname='${firstname}'`)
+  getGuestByFirstname ({link, firstname}) {
+    return db.query(`SELECT * FROM public."Guests" WHERE link='${link}' AND firstname='${firstname}'`)
   },
 
-  getGuestByFirstnameAndLastname ({firstname, lastname}) {
-    return db.query(`SELECT * FROM public."Guests" WHERE firstname='${firstname}' AND lastname='${lastname}'`)
+  getGuestByFirstnameAndLastname ({link, firstname, lastname}) {
+    return db.query(`SELECT * FROM public."Guests" WHERE link='${link}' AND firstname='${firstname}' AND lastname='${lastname}'`)
   },
 
-  addGuestData ({firstname, lastname, email, phone, address}) {
+  addGuestData ({link, firstname, lastname, email, phone, address}) {
     return db.query(`UPDATE public."Guests" SET 
       email='${email}',
       phone='${phone}',
       address='${address}'
-    WHERE firstname='${firstname}'
+    WHERE link='${link}'
+    AND firstname='${firstname}'
     AND lastname='${lastname}'`)
   },
 
-  addGuestResponse ({firstname, lastname, alone, brunch, coming, hasChildren, loverFirstname, children, song}) {
-    console.log('res addGuestResponse brunch', firstname)
+  addGuestResponse ({link, firstname, lastname, fill_form, alone, brunch, coming, hasChildren, loverFirstname, children, song}) {
+    console.log('res addGuestResponse brunch', link)
     return db.query(`UPDATE public."Guests" SET 
+      fill_form='${fill_form}',
       alone='${alone}',
       brunch='${brunch}',
       coming='${coming}',
@@ -33,7 +35,8 @@ module.exports = {
       lover_firstname='${loverFirstname}',
       children='${children}',
       song='${song}'
-    WHERE firstname='${firstname}'
+    WHERE link='${link}'
+    AND firstname='${firstname}'
     AND lastname='${lastname}'`)
   }
 }
