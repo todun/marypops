@@ -34,7 +34,7 @@ export default {
     onSubmit () {
       let formattingData = this.firstname.trim().toLowerCase()
       formattingData = this.capitalizeFirstLetter(formattingData)
-      this.$store.dispatch('setGuest', {firstname: formattingData})
+      this.$store.dispatch('setGuest', {firstname: formattingData, link: this.guest.link})
     },
     capitalizeFirstLetter (string) {
       return string[0].toUpperCase() + string.slice(1)

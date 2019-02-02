@@ -14,9 +14,7 @@ app.post('/token', (req, res) => {
   const {token} = req.body
   model.getToken()
     .then(result => {
-      console.log('result token', result)
       if (token === result.rows[0].token) {
-        console.log('in if toekn')
         return res.json(result.rows)
       }
       return res.status(401).json({msg: 'bad token'})

@@ -1,11 +1,15 @@
 <template>
   <section class="">
     <h1 class="page-title">Présence</h1>
-    <section class="container__content">
-      <div class="botui-app-container" id="my-botui-app">
-        <bot-ui></bot-ui>
+    <h3 class="page-subtitle">A remplir avant le 31 mars 2019</h3>
+    <section class="container__content" v-if="guest.fillForm === 1">
+      <div class="botui-app-container" id="my-botui-app" v-if="guest.fillForm === 1">
+        <bot-ui v-if="guest.fillForm === 1"></bot-ui>
       </div>
        <a v-if="formData.over" class="btn btn--blue" @click="onSubmit">Envoyer la réponse</a>
+    </section>
+    <section class="container__content" v-if="guest.fillForm === 0 " >
+      <h3>Merci pour votre réponse</h3>
     </section>
   </section>
 </template>
@@ -36,6 +40,7 @@ export default {
       this.data.hasChildren = this.formData.hasChildren
       this.data.children = this.formData.children
       this.data.song = this.formData.song
+      this.data.fillForm = 0
       let response = this.data
       console.log('res on submit', response)
       this.$store.dispatch('setGuestResponse', {response})

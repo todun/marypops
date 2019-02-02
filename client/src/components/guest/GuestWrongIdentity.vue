@@ -31,7 +31,7 @@ export default {
   methods: {
     onSubmit () {
       let formattingData = this.lastname.trim().toUpperCase()
-      this.$store.dispatch('setGuestWithLastname', {firstname: this.guest.firstname, lastname: formattingData})
+      this.$store.dispatch('setGuestWithLastname', {link: this.guest.link, firstname: this.guest.firstname, lastname: formattingData})
     }
   }
 }
