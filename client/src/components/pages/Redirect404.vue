@@ -19,5 +19,13 @@
     object-fit: contain;
     width: 100%;
     height: auto;
+    margin-bottom: 2em;
+  }
+
+  @media only screen and (min-device-width: 768px) {
+    img {
+      width: 60%;
+      margin: auto 20%;
+    }
   }
 </style>

@@ -1,11 +1,11 @@
 .botui-message-content {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #FF914D;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #FF914D !important;
 }
 .botui-message-content {
-  color: white;
+  color: white !important;
 }
 .botui-actions-buttons-button {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #55CCEE;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #55CCEE !important;
 }
 
 @media (min-width: 400px) {

@@ -7,8 +7,8 @@ form {
     border-bottom: 1px solid $blue;
     // text-align: center;
     // padding-bottom: 0.2rem;
-    height: 38px;
-    background-color: transparent;
+    min-height: 45px;
+    background-color: transparent !important;
     margin-bottom: 2em;
     &::placeholder {
       color: $grey;
@@ -25,4 +25,11 @@ form {
       // }
     }
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }

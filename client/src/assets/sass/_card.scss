@@ -41,12 +41,30 @@
   .mairie_chatou {
     background-image: url("./assets/images/mairie_chatou.jpg");
   }
-  .ferme_prieuré_1{
+  .ferme_prieuré_1 {
     background-image: url("./assets/images/ferme_prieuré_1.jpg");
   }
   .ferme_prieuré_2 {
     background-image: url("./assets/images/ferme_prieuré_2.jpg");
   }
+
+  .appartcity {
+    background-image: url("./assets/images/appartcity.jpg");
+  }
+
+  .premiere_classe {
+    background-image: url("./assets/images/premiere_classe.jpg");
+  }
+
+  .ibis {
+    background-image: url("./assets/images/ibis.jpg");
+  }
+
+  .mercure {
+    background-image: url("./assets/images/mercure.jpg");
+  }
+
+
   &__title {
     box-shadow: 0 1px 2px rgba($blue, 0.8);
     background-color: rgba($white, 0.8);

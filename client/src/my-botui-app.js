@@ -205,7 +205,7 @@ export function initBotApp () {
               formData.brunch = 0
               botui.message.add({
                 delay: 1000,
-                content: 'On est très contente !! Merci et à très vite !'
+                content: 'On est très contente !!'
               })
                 .then(() => {
                   setSong()
@@ -214,7 +214,7 @@ export function initBotApp () {
               formData.brunch = 1
               return botui.message.add({
                 delay: 1000,
-                content: 'Merci d\'être déjà là samedi. On se voit très vite!'
+                content: 'Samedi c\'est déjà super!'
               })
                 .then(() => {
                   setSong()
