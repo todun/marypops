@@ -42,7 +42,7 @@ h3 {
   text-align: center;
 }
 .page-container {
-  height: calc(100vh - 14vh);
+  min-height: calc(100vh - 14vh);
   display: flex;
   flex-direction: column;
 }

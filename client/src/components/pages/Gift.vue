@@ -1,7 +1,8 @@
 <template>
   <section class="page-container">
     <h1 class="page-title">Liste de Mariage</h1>
-    <h3 class="page-subtitle">Une cagnotte a été mise en place</h3>
+    <h3 class="page-subtitle">Une urne sera présente sur place</h3>
+    <h3 class="page-subtitle">Mais pour les numériques addict voici une cagnotte</h3>
     <h3 class="page-subtitle">Pour partir découvrir le monde!</h3>
     <section class="earth_anim">
       <div class="earth">
@@ -20,13 +21,14 @@
   .btn-wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 2em;
   }
   .earth_anim {
     display: flex;
     position: relative;
-    margin: 10% 5%;
+    margin: 5%;
     width: 90%;
-    height: 40%;
+    min-height: 250px;
     background: #1B2B2F;
     overflow: hidden;
     border-radius: 100px;
@@ -36,7 +38,7 @@
     width: 200px;
     border-radius: 50%;
     background-color: #3380B5;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
