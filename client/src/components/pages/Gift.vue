@@ -4,6 +4,9 @@
     <h3 class="page-subtitle">Une urne sera présente sur place</h3>
     <h3 class="page-subtitle">Mais pour les numériques addict voici une cagnotte</h3>
     <h3 class="page-subtitle">Pour partir découvrir le monde!</h3>
+    <div class="btn-wrapper">
+      <button class="btn btn--orange">Accéder à la Cagnotte</button>
+    </div>
     <section class="earth_anim">
       <div class="earth">
         <div class="earth--shadow"></div>
@@ -11,17 +14,13 @@
       <div class="moon"></div>
       <div class="stars"></div>
     </section>
-    <div class="btn-wrapper">
-      <button class="btn btn--orange">Accéder à la Cagnotte</button>
-    </div>
-
   </section>
 </template>
 <style scoped>
   .btn-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 2em;
+    margin: 2em;
   }
   .earth_anim {
     display: flex;
