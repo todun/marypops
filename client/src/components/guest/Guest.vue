@@ -14,7 +14,7 @@
           <input type="submit" value="Valider!" class="btn btn--orange btn--input">
         </form>
       </section>
-      <p class="errors" v-if="msgErr && inputToken !== ''"> Le code n'est pas le bon....</p>
+      <p class="errors" v-if="error && inputToken !== ''"> Le code n'est pas le bon....</p>
     </section>
     <router-view v-if="token"/>
 
@@ -23,36 +23,32 @@
 
 <script>
 import { mapState } from 'vuex'
+import hideErrorMessage from '../../mixins/mixins'
 export default {
+  mixins: [ hideErrorMessage ],
   name: 'Guest',
   computed: {
     ...mapState({
       token: state => state.token,
       seeEvent: state => state.seeEvent,
       inputError: state => state.inputError
-    })
+    }),
+    error: function () {
+      return this.inputError
+    }
   },
   data () {
     return {
-      inputToken: '',
-      msgErr: false
+      inputToken: ''
     }
   },
   methods: {
     onSubmit () {
       let formattingData = this.inputToken.trim().toUpperCase()
       this.$store.dispatch('setToken', {token: formattingData})
-      this.msgErr = this.inputError
-      console.log('this.inputError', this.inputError)
-      console.log('this.msgErr', this.msgErr)
-    },
-    hideErrorMessage () {
-      this.msgErr = false
     }
   },
   mounted () {
-    this.msgErr = this.inputError
-
     let image = document.querySelector('img')
     let imageCanvas = document.getElementById('anim-guest')
     let imageCanvasContext = imageCanvas.getContext('2d')

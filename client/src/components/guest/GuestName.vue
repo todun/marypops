@@ -11,42 +11,45 @@
         <input type="submit" value="Valider!" class="btn btn--orange btn--input">
       </form>
     </section>
-     <p class="errors" v-if="guest.firstname === '' || msgErr"> On ne vous a pas trouvé... Mais pouvez réessayer!<br> (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
+     <p class="errors" v-if="error"> On ne vous a pas trouvé... Mais pouvez réessayer!<br> (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import hideErrorMessage from '../../mixins/mixins'
 export default {
   name: 'GuestName',
+  mixins: [ hideErrorMessage ],
   computed: {
     ...mapState({
-      guest: state => state.guest
-    })
+      guest: state => state.guest,
+      inputError: state => state.inputError
+    }),
+    error: function () {
+      return this.inputError
+    }
   },
   data () {
     return {
-      firstname: '',
-      msgErr: false
+      firstname: ''
     }
   },
   methods: {
     onSubmit () {
       let formattingData = this.firstname.trim().toLowerCase()
+      // let formattingData = this.firstname.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      let union = formattingData.search('-')
+      formattingData = union ? formattingData.replace(`-${formattingData[union + 1]}`, `-${formattingData[union + 1].toUpperCase()}`) : formattingData
+
       formattingData = this.capitalizeFirstLetter(formattingData)
       this.$store.dispatch('setGuest', {firstname: formattingData, link: this.guest.link})
     },
     capitalizeFirstLetter (string) {
       return string[0].toUpperCase() + string.slice(1)
-    },
-    hideErrorMessage () {
-      this.msgErr = false
     }
   },
   mounted () {
-    if (this.guest.firstname === '') {
-      this.msgErr = true
-    }
     var Canvas = document.getElementById('anim-guestname')
     var ctx = Canvas.getContext('2d')
 

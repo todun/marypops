@@ -79,8 +79,6 @@ export default new Vuex.Store({
       .catch(err =>{
         console.log('in err store', err)
         this.state.inputError = true
-        console.log('this.msgErr .',this.msgErr )
-        return this.msgErr = true
       })
     },
 
@@ -110,6 +108,7 @@ export default new Vuex.Store({
             })
               router.push({name: 'GuestIdentity'})
           } else {
+            this.state.inputError = true
             commit('mutateGuestInfo', {
               firstname: '',
               link: guest.link
@@ -130,7 +129,9 @@ export default new Vuex.Store({
             })
             router.push({name: 'GuestConfirmIdentity'})
           } else {
+            this.state.inputError = true
             commit('mutateGuestInfo', {
+              link: this.state.guest.link,
               firstname: this.state.guest.firstname,
               lastname: ''
             })
