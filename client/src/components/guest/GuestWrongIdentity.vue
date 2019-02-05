@@ -7,30 +7,36 @@
         <h2>Quel est votre nom de famille?</h2>
       </article>
       <form @submit.prevent="onSubmit">
-        <input type="text" name="lastname" placeholder="Votre nom de famille" class="input" v-model="lastname">
+        <input type="text" name="lastname" placeholder="Votre nom de famille" class="input" v-model="lastname" @focus="hideErrorMessage">
         <input type="submit" value="Valider!" class="btn btn--orange btn--input">
       </form>
     </section>
-    <p  class="errors" v-if="guest.lastname === ''"> Oh bah on ne vous trouve pas...Mais pouvez réessayer! (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
+    <p  class="errors" v-if="error"> Oh bah on ne vous trouve pas...Mais pouvez réessayer! (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import hideErrorMessage from '../../mixins/mixins'
 export default {
+  mixins: [ hideErrorMessage ],
+  computed: {
+    ...mapState({
+      inputError: state => state.inputError,
+      guest: state => state.guest
+    }),
+    error: function () {
+      return this.inputError
+    }
+  },
   data () {
     return {
       lastname: ''
     }
   },
-  computed: {
-    ...mapState({
-      guest: state => state.guest
-    })
-  },
   methods: {
     onSubmit () {
-      let formattingData = this.lastname.trim().toUpperCase()
+      let formattingData = this.lastname.trim().toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       this.$store.dispatch('setGuestWithLastname', {link: this.guest.link, firstname: this.guest.firstname, lastname: formattingData})
     }
   }
