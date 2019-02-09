@@ -1,6 +1,7 @@
 .btn {
+  min-height: 2rem;
   padding: 0.5em 2em;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #55CCEE;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), $blue;
   border-radius: 8px;
   display: inline-block;
   text-decoration: none;
@@ -10,10 +11,13 @@
     letter-spacing: 0.1em;
   cursor: pointer;
   &:hover {
-    background-color: $blue;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), darken($blue, 10%);
   }
   &--orange {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #FF914D;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), $orange;
+    &:hover {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), darken($orange, 10%);
+    }
   }
   &--input {
     margin-top: 2rem;
