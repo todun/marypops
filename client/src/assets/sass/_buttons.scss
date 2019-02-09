@@ -21,3 +21,13 @@
     align-self: flex-end;
   }
 }
+input:disabled {
+  background-color: $grey !important;
+  color: $black;
+  cursor: none;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}

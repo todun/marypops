@@ -38,7 +38,34 @@ export default {
   methods: {
     onSubmit () {
       let formattingData = this.firstname.trim().toLowerCase()
-      // let formattingData = this.firstname.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      switch (formattingData) {
+        case 'aurelia':
+          formattingData = 'aurélia'
+          break
+        case 'maelle':
+          formattingData = 'maëlle'
+          break
+        case 'celine':
+          formattingData = 'céline'
+          break
+        case 'cecile':
+          formattingData = 'cécile'
+          break
+        case 'raphael':
+          formattingData = 'raphaël'
+          break
+        case 'chloe':
+          formattingData = 'chloé'
+          break
+        case 'therence':
+          formattingData = 'thérence'
+          break
+        case 'timothee':
+          formattingData = 'timothée'
+          break
+        default:
+          console.log('not in here')
+      }
       let union = formattingData.search('-')
       formattingData = union ? formattingData.replace(`-${formattingData[union + 1]}`, `-${formattingData[union + 1].toUpperCase()}`) : formattingData
 
