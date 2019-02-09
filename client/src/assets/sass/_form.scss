@@ -21,9 +21,6 @@ form {
     &:focus {
       outline: none;
       box-shadow: 0 5px 5px -5px $blue;
-      // &::placeholder {
-      //   font-size: $size-small;
-      // }
     }
   }
   p.invalid {

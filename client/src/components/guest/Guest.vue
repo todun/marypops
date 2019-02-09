@@ -11,7 +11,9 @@
         </article>
         <form @submit.prevent="onSubmit">
           <input type="text" name="token" placeholder="Votre code" class="input" v-model="inputToken" @focus="hideErrorMessage">
-          <input type="submit" value="Valider!" class="btn btn--orange btn--input">
+          <div class="btn-wrapper">
+            <input type="submit" value="Valider!" class="btn btn--orange btn--input">
+          </div>
         </form>
       </section>
       <p class="errors" v-if="error && inputToken !== ''"> Le code n'est pas le bon....</p>

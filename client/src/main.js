@@ -7,7 +7,9 @@ import axios from 'axios'
 import store from './store'
 import VueAxios from 'vue-axios'
 import VueParticles from 'vue-particles'
+import Vuelidate from 'vuelidate'
 
+Vue.use(Vuelidate)
 Vue.use(VueParticles)
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)

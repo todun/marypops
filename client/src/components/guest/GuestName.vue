@@ -8,7 +8,9 @@
       </article>
       <form @submit.prevent="onSubmit">
         <input type="text" name="firstname" placeholder="Votre prénom" class="input" v-model="firstname" @focus="hideErrorMessage">
-        <input type="submit" value="Valider!" class="btn btn--orange btn--input">
+        <div class="btn-wrapper">
+          <input type="submit" value="Valider!" class="btn btn--orange btn--input">
+        </div>
       </form>
     </section>
      <p class="errors" v-if="error"> On ne vous a pas trouvé... Mais pouvez réessayer!<br> (Si le problème persiste, essayez votre conjoint.e ou contactez-nous)</p>
