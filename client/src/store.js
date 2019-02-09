@@ -124,6 +124,7 @@ export default new Vuex.Store({
           console.log('res setGuestWithLastname', res)
           if (res.data.length > 0) {
             commit('mutateGuestInfo', {
+              link: this.state.guest.link,
               firstname: res.data[0].firstname,
               lastname: res.data[0].lastname,
             })

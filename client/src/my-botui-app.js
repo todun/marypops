@@ -74,10 +74,37 @@ export function initBotApp () {
       })
       .then((res) => {
         if (res.value === 'alone') {
-          formData.alone = 0
-          setEvent()
-        } else {
           formData.alone = 1
+          botui.message.add({
+            delay: 1000,
+            content: 'Viendrez-vous avec des enfants?'
+          })
+            .then(() => {
+              return botui.action.button({
+                delay: 1000,
+                action: [{
+                  icon: 'check',
+                  text: 'Oui !',
+                  value: 'oui'
+                },
+                {
+                  icon: 'check',
+                  text: 'Non',
+                  value: 'non'
+                }]
+              })
+            })
+            .then((res) => {
+              if (res.value === 'oui') {
+                formData.hasChildren = 0
+                setFamilyMember()
+              } else {
+                formData.hasChildren = 1
+                setEvent()
+              }
+            })
+        } else {
+          formData.alone = 0
           setFamilyLover()
         }
       })

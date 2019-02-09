@@ -4,11 +4,11 @@
     <h3 class="page-subtitle">A remplir avant le 31 mars 2019</h3>
     <section class="container__content" v-if="guest.fillForm === 1">
       <div class="botui-app-container" id="my-botui-app" v-if="guest.fillForm === 1">
-        <bot-ui v-if="guest.fillForm === 1"></bot-ui>
+        <bot-ui v-if="!formFilled"></bot-ui>
       </div>
-       <a v-if="formData.over" class="btn btn--blue" @click="onSubmit">Envoyer la réponse</a>
+       <div class="btn-wrapper"><a v-if="formData.over" class="btn btn--blue" @click="onSubmit">Envoyer la réponse</a></div>
     </section>
-    <section class="container__content" v-if="guest.fillForm === 0 " >
+    <section class="container__content" v-if="formFilled" >
       <h3>Merci pour votre réponse</h3>
     </section>
   </section>
@@ -23,12 +23,16 @@ export default {
   computed: {
     ...mapState({
       guest: state => state.guest
-    })
+    }),
+    formFilled: function () {
+      return this.formFull
+    }
   },
   data () {
     return {
       data: {},
-      formData: {}
+      formData: {},
+      formFull: false
     }
   },
   methods: {
@@ -51,6 +55,13 @@ export default {
     console.log('data', this.data)
     this.formData = initBotApp()
     console.log('this.formData', this.formData)
+  },
+  updated () {
+    if (this.guest.fillForm === 0) {
+      this.formFull = true
+    } else {
+      this.formFull = false
+    }
   }
 }
 </script>
