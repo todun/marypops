@@ -27,6 +27,9 @@ export default new Vuex.Store({
       children: null,
       song: null,
       fillForm: 1
+    },
+    registered: {
+      firstname: null
     }
   },
 
@@ -61,6 +64,9 @@ export default new Vuex.Store({
       state.guest.fillForm = guest.fillForm
       state.guest.loverFirstname = guest.loverFirstname
       state.guest.children = guest.children
+    },
+    registered (state, guest) {
+      state.registered.firstname = guest.firstname
     }
   },
 
@@ -174,12 +180,24 @@ export default new Vuex.Store({
           })
         })
         .then(() => {
-         console.log('done')
+          localStorage.setItem('formFilled', this.state.guest.firstname)
         })
         .catch(error => console.log(error))
-    }
+    },
+    tryAutoLogin ({commit}) {
+      const firstname = localStorage.getItem('formFilled')
+      if (!firstname) {
+        return
+      }
+      commit('registered', {
+        firstname: firstname
+      })
+      router.replace({name: 'Home'});
+    },
   },
   getters: {
-    //
+    isRegistered: state => {
+      return state.registered.firstname !== null
+    }
   }
 })
