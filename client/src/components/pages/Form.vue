@@ -16,6 +16,7 @@
     <section v-if="isRegistered">
       <h1 class="page-title">Présence</h1>
       <h3 class="page-subtitle">Merci d'avoir rempli le formulaire</h3>
+      <h2>Si vous avez des informations à modifier, contactez-nous</h2>
     </section>
 
   </section>
