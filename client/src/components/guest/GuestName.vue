@@ -65,6 +65,9 @@ export default {
         case 'timothee':
           formattingData = 'timothée'
           break
+        case 'aurelie':
+          formattingData = 'aurélie'
+          break
         default:
           console.log('not in here')
       }
