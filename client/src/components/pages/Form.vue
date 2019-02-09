@@ -1,21 +1,28 @@
 <template>
-  <section class="">
-    <h1 class="page-title">Présence</h1>
-    <h3 class="page-subtitle">A remplir avant le 31 mars 2019</h3>
-    <section class="container__content" v-if="guest.fillForm === 1">
-      <div class="botui-app-container" id="my-botui-app" v-if="guest.fillForm === 1">
-        <bot-ui v-if="!formFilled"></bot-ui>
-      </div>
-       <div class="btn-wrapper"><a v-if="formData.over" class="btn btn--blue" @click="onSubmit">Envoyer la réponse</a></div>
+  <section class>
+    <section v-if="!isRegistered">
+      <h1 class="page-title">Présence</h1>
+      <h3 class="page-subtitle">A remplir avant le 31 mars 2019</h3>
+      <section class="container__content" v-if="guest.fillForm === 1">
+        <div class="botui-app-container" id="my-botui-app" v-if="guest.fillForm === 1">
+          <bot-ui v-if="!formFilled"></bot-ui>
+        </div>
+        <div class="btn-wrapper"><a v-if="formData.over" class="btn btn--blue" @click="onSubmit">Envoyer la réponse</a></div>
+      </section>
+      <section class="container__content" v-if="formFilled" >
+        <h3>Merci pour votre réponse</h3>
+      </section>
     </section>
-    <section class="container__content" v-if="formFilled" >
-      <h3>Merci pour votre réponse</h3>
+    <section v-if="isRegistered">
+      <h1 class="page-title">Présence</h1>
+      <h3 class="page-subtitle">Merci d'avoir rempli le formulaire</h3>
     </section>
+
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { initBotApp } from './../../my-botui-app'
 
 export default {
@@ -24,6 +31,7 @@ export default {
     ...mapState({
       guest: state => state.guest
     }),
+    ...mapGetters(['isRegistered']),
     formFilled: function () {
       return this.formFull
     }

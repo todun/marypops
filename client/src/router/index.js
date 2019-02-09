@@ -28,6 +28,15 @@ export default new Router({
       path: '/guest',
       name: 'Guest',
       component: Guest,
+      props: true,
+      beforeEnter (to, from, next) {
+        console.log(store.getters.isRegistered)
+        if (store.state.token || store.getters.isRegistered) {
+          next({name: 'Home'})
+        } else {
+          next()
+        }
+      },
       children: [
         {
           path: '/guest/link',
@@ -35,7 +44,7 @@ export default new Router({
           component: GuestLink,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -48,7 +57,7 @@ export default new Router({
           component: GuestName,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -61,7 +70,7 @@ export default new Router({
           component: GuestIdentity,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -74,7 +83,7 @@ export default new Router({
           component: GuestWrongIdentity,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -87,7 +96,7 @@ export default new Router({
           component: GuestConfirmIdentity,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -100,7 +109,7 @@ export default new Router({
           component: GuestNotFound,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -113,7 +122,7 @@ export default new Router({
           component: GuestData,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -126,7 +135,7 @@ export default new Router({
           component: GuestAccess,
           props: true,
           beforeEnter (to, from, next) {
-            if (store.state.token) {
+            if (store.state.token || store.getters.isRegistered) {
               next()
             } else {
               next({name: 'Guest'})
@@ -141,7 +150,7 @@ export default new Router({
       component: Home,
       props: true,
       beforeEnter (to, from, next) {
-        if (store.state.token) {
+        if (store.state.token || store.getters.isRegistered) {
           next()
         } else {
           next({name: 'Guest'})
@@ -154,7 +163,7 @@ export default new Router({
       component: Contact,
       props: true,
       beforeEnter (to, from, next) {
-        if (store.state.token) {
+        if (store.state.token || store.getters.isRegistered) {
           next()
         } else {
           next({name: 'Guest'})
@@ -167,7 +176,7 @@ export default new Router({
       component: Place,
       props: true,
       beforeEnter (to, from, next) {
-        if (store.state.token) {
+        if (store.state.token || store.getters.isRegistered) {
           next()
         } else {
           next({name: 'Guest'})
@@ -180,7 +189,7 @@ export default new Router({
       component: Hostel,
       props: true,
       beforeEnter (to, from, next) {
-        if (store.state.token) {
+        if (store.state.token || store.getters.isRegistered) {
           next()
         } else {
           next({name: 'Guest'})
@@ -193,7 +202,7 @@ export default new Router({
       component: Gift,
       props: true,
       beforeEnter (to, from, next) {
-        if (store.state.token) {
+        if (store.state.token || store.getters.isRegistered) {
           next()
         } else {
           next({name: 'Guest'})
@@ -204,14 +213,14 @@ export default new Router({
       path: '/form',
       name: 'Form',
       component: Form,
-      props: true
-      // beforeEnter (to, from, next) {
-      //   if (store.state.token) {
-      //     next()
-      //   } else {
-      //     next({name: 'Guest'})
-      //   }
-      // }
+      props: true,
+      beforeEnter (to, from, next) {
+        if (store.state.token || store.getters.isRegistered) {
+          next()
+        } else {
+          next({name: 'Guest'})
+        }
+      }
     },
     {
       path: '/utils',
@@ -219,7 +228,7 @@ export default new Router({
       component: Utils,
       props: true,
       beforeEnter (to, from, next) {
-        if (store.state.token) {
+        if (store.state.token || store.getters.isRegistered) {
           next()
         } else {
           next({name: 'Guest'})
