@@ -17,6 +17,7 @@ import Gift from '@/components/pages/Gift'
 import Form from '@/components/pages/Form'
 import Utils from '@/components/pages/Utils'
 import Karaoke from '@/components/pages/Karaoke'
+import Following from '@/components/pages/Following'
 import Redirect404 from '@/components/pages/Redirect404'
 import store from '../store'
 Vue.use(Router)
@@ -238,8 +239,12 @@ export default new Router({
     {
       path: '/karaoke',
       name: 'Karaoke',
-      component: Karaoke,
-      props: true
+      component: Karaoke
+    },
+    {
+      path: '/following',
+      name: 'Following',
+      component: Following
     },
     {
       path: '*',
