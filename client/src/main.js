@@ -8,6 +8,7 @@ import store from './store'
 import VueAxios from 'vue-axios'
 import VueParticles from 'vue-particles'
 import Vuelidate from 'vuelidate'
+require('./assets/icons/all.js')
 
 Vue.use(Vuelidate)
 Vue.use(VueParticles)

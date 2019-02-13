@@ -16,7 +16,10 @@
     <section v-if="isRegistered">
       <h1 class="page-title">Présence</h1>
       <h3 class="page-subtitle">Merci d'avoir rempli le formulaire</h3>
-      <h2>Si vous avez des informations à modifier, contactez-nous</h2>
+      <h3 class="page-subtitle">Si vous avez des informations à modifier, contactez-nous</h3>
+      <div class="btn-wrapper">
+        <a class="btn btn--orange" @click="(() => { this.$router.push({name: 'Contact'})})">Nous Contacter</a>
+      </div>
     </section>
 
   </section>
@@ -62,8 +65,10 @@ export default {
   mounted () {
     this.data = this.guest
     console.log('data', this.data)
-    this.formData = initBotApp()
-    console.log('this.formData', this.formData)
+    if (!this.isRegistered) {
+      this.formData = initBotApp()
+      console.log('this.formData', this.formData)
+    }
   },
   updated () {
     if (this.guest.fillForm === 0) {

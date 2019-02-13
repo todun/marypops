@@ -5,7 +5,7 @@
     <h3 class="page-subtitle">Mais pour les numériques addict voici une cagnotte</h3>
     <h3 class="page-subtitle">Pour partir découvrir le monde!</h3>
     <div class="btn-wrapper">
-      <button class="btn btn--orange">Accéder à la Cagnotte</button>
+      <a href="https://paypal.me/pools/c/8cayLD8rZw" target="_blank"><button class="btn btn--orange">Accéder à la Cagnotte</button></a>
     </div>
     <section class="earth_anim">
       <div class="earth">

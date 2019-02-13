@@ -1,6 +1,17 @@
 <template>
   <section class="container">
-    <canvas id="anim-guestname"></canvas>
+    <vue-particles color="#5CE1E6"
+                   :particleOpacity="0.7"
+                   :particlesNumber="180"
+                   shapeType="circle"
+                   :particleSize="8"
+                   linesColor="#FF914D"
+                   :linesWidth="1"
+                   :lineLinked="true"
+                   :lineOpacity="0.4"
+                   :linesDistance="50"
+                   :moveSpeed="0.5">
+    </vue-particles>
     <section class="container__content">
       <article>
         <h2>Ah {{guest.firstname}} merci d'être ici!</h2>
