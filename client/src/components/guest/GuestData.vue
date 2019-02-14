@@ -11,7 +11,7 @@
         <p :class="{invalid: $v.email.$error}" v-if="$v.email.$error">Oups adresse mail invalide</p>
         <!-- <input id="address" type="text" name="address" placeholder="Votre adresse" class="input" v-model.lazy="address" @blur="$v.address.$touch()" >
         <p :class="{invalid: $v.address.$error}" v-if="!$v.address.$error">Oups ceci n'est pas une adresse valide</p> -->
-        <input id="phone" type="tel" name="phone" placeholder="Votre téléphone" class="input" v-model.lazy="phone" @focus="$v.phone.$touch()" >
+        <input id="phone" type="tel" name="phone" placeholder="Votre téléphone" class="input" v-model.lazy="phone" @input="$v.phone.$touch()" >
         <p :class="{invalid: $v.phone.$error}" v-if="!$v.phone.minLen">Oups ceci n'est pas un numéro valide</p>
         <input type="submit" value="Valider!" :disabled="$v.$invalid" class="btn btn--orange btn--input">
       </form>

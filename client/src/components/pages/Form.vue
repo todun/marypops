@@ -2,7 +2,7 @@
   <section class>
     <section v-if="!isRegistered">
       <h1 class="page-title">Présence</h1>
-      <h3 class="page-subtitle">A remplir avant le 31 mars 2019</h3>
+      <h3 class="page-subtitle" v-if="!formFilled">A remplir avant le 31 mars 2019</h3>
       <section class="container__content" v-if="guest.fillForm === 1">
         <div class="botui-app-container" id="my-botui-app" v-if="guest.fillForm === 1">
           <bot-ui v-if="!formFilled"></bot-ui>
@@ -49,13 +49,17 @@ export default {
   },
   methods: {
     onSubmit () {
+      let tmpSong = this.formData.song
+      for (let index = 0; index < tmpSong.length; index++) {
+        tmpSong = tmpSong.replace('\'', ' ')
+      }
       this.data.coming = this.formData.coming
       this.data.alone = this.formData.alone
       this.data.brunch = this.formData.brunch
       this.data.loverFirstname = this.formData.loverFirstname
       this.data.hasChildren = this.formData.hasChildren
       this.data.children = this.formData.children
-      this.data.song = this.formData.song
+      this.data.song = tmpSong
       this.data.fillForm = 0
       let response = this.data
       this.$store.dispatch('setGuestResponse', {response})

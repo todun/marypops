@@ -158,7 +158,7 @@ export function initBotApp () {
   function setFamilyMember () {
     botui.message.add({
       delay: 1000,
-      content: 'Quel est le prénom de votre enfant?'
+      content: 'Quel est le prénom de votre enfant (entrer vos enfant un à un)?'
     })
       .then(() => {
         return botui.action.text({
