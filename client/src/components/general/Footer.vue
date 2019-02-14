@@ -33,7 +33,6 @@ export default {
   },
   beforeMount () {
     this.calculateTimeLeft()
-    console.log(this.timeLeft)
   }
 }
 </script>

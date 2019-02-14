@@ -20,7 +20,6 @@ export default {
       this.axios.get(`api/guests/songs`)
         .then(res => {
           res.data.map(el => {
-            console.log('el', el)
             if (el.song !== null) {
               this.songs.push(el.song)
             }

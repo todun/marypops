@@ -29,9 +29,6 @@ module.exports = {
   },
 
   addGuestResponse ({link, firstname, lastname, email, phone, address, alone, coming, brunch, hasChildren, loverFirstname, children, song, fillForm}) {
-    console.log('res addGuestResponse brunch', lastname)
-    console.log('res addGuestResponse brunch', link)
-    console.log('res addGuestResponse brunch', firstname)
     return db.query(`UPDATE public."Guests" SET 
       fill_form='${fillForm}',
       email='${email}',

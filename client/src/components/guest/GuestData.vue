@@ -57,17 +57,12 @@ export default {
       for (let i = 0; i < formattingAddress.length; i++) {
         if (formattingAddress.charAt(i) === '\'') {
           indexToReplace.push(i)
-          console.log('tmpAddress', indexToReplace)
         }
       }
       indexToReplace = indexToReplace.sort((a, b) => b - a)
-      console.log('tmpAddress last', indexToReplace)
       for (let j = 0; j < indexToReplace.length; j++) {
-        console.log(j + indexToReplace[j])
         formattingAddress = formattingAddress.replace(`${formattingAddress[indexToReplace[j + 1]]}`, `''`)
-        console.log('formattingAddress', formattingAddress)
       }
-      console.log('formattingAddress', formattingAddress)
       let formData = {
         firstname: this.guest.firstname,
         lastname: this.guest.lastname,
@@ -76,7 +71,6 @@ export default {
         address: this.address,
         link: this.guest.link
       }
-      console.log('formData', formData)
       this.$store.dispatch('setGuestData', {formData})
     }
   },

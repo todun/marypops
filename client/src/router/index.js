@@ -31,7 +31,6 @@ export default new Router({
       component: Guest,
       props: true,
       beforeEnter (to, from, next) {
-        console.log(store.getters.isRegistered)
         if (store.state.token || store.getters.isRegistered) {
           next({name: 'Home'})
         } else {

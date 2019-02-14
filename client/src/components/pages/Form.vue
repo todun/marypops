@@ -58,16 +58,13 @@ export default {
       this.data.song = this.formData.song
       this.data.fillForm = 0
       let response = this.data
-      console.log('res on submit', response)
       this.$store.dispatch('setGuestResponse', {response})
     }
   },
   mounted () {
     this.data = this.guest
-    console.log('data', this.data)
     if (!this.isRegistered) {
       this.formData = initBotApp()
-      console.log('this.formData', this.formData)
     }
   },
   updated () {
