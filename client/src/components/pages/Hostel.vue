@@ -37,7 +37,7 @@ export default {
           title: 'Charmilles des Cordeliers',
           url: 'charmilles_cordeliers',
           link: 'http://www.charmillesdescordeliers.com/wordpress/',
-          description: 'à 2,9m soit 6min en voiture'
+          description: 'à 2,9km soit 6min en voiture'
         },
         {
           title: 'Appart\'City Versailles Saint Cyr',

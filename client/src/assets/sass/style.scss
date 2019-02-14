@@ -14,6 +14,9 @@ header {
   display: flex;
   align-items: center;
   box-shadow: 0 0 0.5rem 0 $grey;
+  p {
+    display: none;
+  }
   h1 {
     margin: auto;
     color: $grey;
@@ -29,6 +32,18 @@ header {
   }
 }
 
+@media only screen and (min-device-width: 768px)  {
+  header {
+    p {
+      display: flex;
+      margin: 0;
+      position: absolute;
+      left: 4em;
+      color: $orange;
+      cursor: pointer;
+    }
+  }
+}
 footer {
   height: 6vh;
   width: 100vw;
@@ -52,32 +67,6 @@ main {
   // background-color: $cream;
 }
 
-// .container {
-//   position: relative;
-//   height: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   &__content {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     height: 80%;
-//     article {
-//       // width: 80%;
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       align-items: center;
-//       margin-bottom: 2em;
-//       h2 {
-//         text-align: center;
-//         line-height: 1.5em;
-//       }
-//     }
-//   }
-// }
 
 #anim-home {
   width: 100%;
@@ -130,7 +119,9 @@ main {
 .girls-wrapper {
   position: relative;
   margin: auto;
-  padding: 2em 0;
+  padding-top: 2em;
+  padding-left: 0;
+  padding-right: 0;
   height: 36%;
 }
 .girls path,
@@ -209,21 +200,6 @@ text {
   animation: lines 4s linear forwards;
   animation-delay: 2s;
 }
-// .anim-first {
-//   animation-delay: 0.2s;
-// }
-// .anim-second {
-//   animation-delay: 1.2s;
-// }
-// .anim-third {
-//   animation-delay: 2.2s;
-// }
-// .anim-fourth {
-//   animation-delay :3.2s;
-// }
-// .anim-fifth {
-//   animation-delay: 4.2s;
-// }
 
 
 @keyframes lines{

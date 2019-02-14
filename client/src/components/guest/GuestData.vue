@@ -33,7 +33,7 @@ export default {
     return {
       email: '',
       phone: '',
-      address: 'no adress needed'
+      address: 'no address needed'
     }
   },
   validations: {

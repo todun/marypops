@@ -55,7 +55,7 @@ export function initBotApp () {
   function setFamily () {
     botui.message.add({
       delay: 1000,
-      content: 'Super ! Viendrez-vous seul.e ou accompagné.e?'
+      content: 'Super ! Viendrez-vous seul.e ou accompagné.e (sans encore prendre en compte les enfants)?'
     })
       .then(() => {
         return botui.action.button({
@@ -125,7 +125,7 @@ export function initBotApp () {
             formData.loverFirstname = res.value
             botui.message.add({
               delay: 1000,
-              content: 'Viendrez-vous avec des enfants?'
+              content: 'Viendrez-vous avec des enfants (moins de 18 ans)?'
             })
           })
           .then(() => {
@@ -232,7 +232,7 @@ export function initBotApp () {
               formData.brunch = 0
               botui.message.add({
                 delay: 1000,
-                content: 'On est très contente !!'
+                content: 'On est très contentes !!'
               })
                 .then(() => {
                   setSong()
@@ -254,7 +254,7 @@ export function initBotApp () {
   function setSong () {
     botui.message.add({
       delay: 1000,
-      content: 'Juste une dernière chose, quelle est votre chanson préfére pour un karaoké?'
+      content: 'Juste une dernière chose, quelle est votre chanson préférée pour un karaoké?'
     })
       .then(() => {
         return botui.action.text({

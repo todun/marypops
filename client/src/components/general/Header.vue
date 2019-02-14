@@ -1,6 +1,7 @@
 <template>
     <header>
-      <img src="../../assets/icons/menu.svg" v-if="(token && seeEvent) || isRegistered " alt="icon-menu" @click="openMenu = true">
+      <img src="../../assets/icons/menu.svg" v-if="(token && seeEvent) || isRegistered" alt="icon-menu" @click="openMenu = true">
+      <p v-if="(token && seeEvent) || isRegistered"  @click="openMenu = true">MENU</p>
       <h1>Jana<span>&</span>Olivia</h1>
       <div></div>
       <transition name="menu">
