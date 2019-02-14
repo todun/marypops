@@ -76,14 +76,12 @@ export default new Vuex.Store({
         token: token.token
       })
       .then(res => {
-        console.log('response in store token', res)
         commit('mutateToken', {
           token: true
         })
         router.push({name: 'GuestLink'})
       })
       .catch(err =>{
-        console.log('in err store', err)
         this.state.inputError = true
       })
     },
@@ -95,17 +93,14 @@ export default new Vuex.Store({
     },
 
     setLink ({commit}, guest) {
-      console.log('link', guest)
       commit('mutateLink', {
         link: guest.link
       })
     },
 
     setGuest ({commit}, guest) {
-      console.log('guest', guest)
       axios.get(`/api/guests/${guest.link}/${guest.firstname}`)
         .then(res => {
-          console.log('res', res)
           if (res.data.length > 0) {
             commit('mutateGuestInfo', {
               firstname: res.data[0].firstname,
@@ -127,7 +122,6 @@ export default new Vuex.Store({
     setGuestWithLastname ({commit}, guest) {
       axios.get(`/api/guests/${guest.link}/${guest.lastname}/${guest.firstname}`)
         .then(res => {
-          console.log('res setGuestWithLastname', res)
           if (res.data.length > 0) {
             commit('mutateGuestInfo', {
               link: this.state.guest.link,
@@ -150,7 +144,6 @@ export default new Vuex.Store({
     setGuestData ({commit}, guest) {
       axios.put(`/api/guests`, guest)
         .then(res => {
-          console.log('res', res)
           commit('mutateGuestData', {
             email: res.data[0].email,
             phone: res.data[0].phone,
@@ -164,10 +157,8 @@ export default new Vuex.Store({
     },
 
     setGuestResponse({commit}, guest) {
-      console.log('setGuestResponse', guest)
       axios.put(`/api/guests`, guest)
         .then(res => {
-          console.log('res', res)
           commit('mutateGuestResponse', {
             alone: res.data[0].alone,
             brunch: res.data[0].brunch,
