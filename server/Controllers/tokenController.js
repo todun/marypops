@@ -10,16 +10,19 @@ const model = require('../Models/tokenModel')
 //     .catch(err => res.json(err))
 // })
 
-app.post('/', (req, res) => {
+app.post('/token', (req, res) => {
   const {token} = req.body
   model.getToken()
     .then(result => {
       if (token === result.rows[0].token) {
         return res.json(result.rows)
       }
-      return ''
+      return res.status(401).json({msg: 'bad token'})
     })
-    .catch(err => res.json(err))
+    .catch(err => {
+      res.status(401).json({msg: 'bad token in err'})
+      throw (err)
+    })
 })
 
 module.exports = app

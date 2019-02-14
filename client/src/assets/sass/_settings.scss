@@ -1,0 +1,71 @@
+/***********
+  GLOBAL SETTINGS
+  ***********/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: $font-content;
+}
+
+h1 {
+  font-size: $size-large;
+  font-family: $font-title;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: $size-medium;
+  font-family: $font-title;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: $size-small;
+  font-family: $font-content;
+}
+
+.page-title {
+  margin-top: 2em;
+  text-align: center;
+}
+.page-subtitle {
+  text-align: center;
+}
+.page-container {
+  min-height: calc(100vh - 14vh);
+  display: flex;
+  flex-direction: column;
+}
+
+
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .section-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) {
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

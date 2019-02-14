@@ -1,0 +1,29 @@
+.utils {
+  width: 90%;
+  padding-top: 2rem;
+  margin-left: 6%;
+  line-height: 1.5rem;
+  span {
+    color: $orange;
+  }
+}
+
+@media only screen and (min-device-width: 768px) {
+  .utils {
+    width: 70%;
+    margin: 0 auto;
+    line-height: 3rem;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) {
+  .utils {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-device-width: 1440px) {
+  .utils {
+    width: 35%;
+  }
+}

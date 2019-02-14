@@ -1,0 +1,39 @@
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  .input {
+    position: relative;
+    border: none;
+    border-bottom: 1px solid $blue;
+    min-height: 45px;
+    background-color: transparent !important;
+    margin-bottom: 2em;
+    &::placeholder {
+      color: $grey;
+      font-family: $font-title;
+      font-size: $size-small;
+      padding-left: 0.5em;
+      margin-bottom: 0;
+      min-height: 40px;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 5px 5px -5px $blue;
+    }
+  }
+  p.invalid {
+    position: relative;
+    bottom: 1em !important;
+    font-size: 12px;
+    color: $orange;
+    margin: 0;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

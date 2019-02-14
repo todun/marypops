@@ -1,0 +1,236 @@
+@import 'variables';
+@import 'buttons';
+@import 'errors';
+@import 'nav';
+@import 'form';
+@import 'card';
+@import 'contact';
+@import 'utils';
+@import 'bot';
+@import 'settings';
+
+header {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 0.5rem 0 $grey;
+  h1 {
+    margin: auto;
+    color: $grey;
+    letter-spacing: 0.1rem;
+    span {
+      color: $orange;
+    }
+  }
+  img {
+    position: absolute;
+    left: 2em;
+    cursor: pointer;
+  }
+}
+
+footer {
+  height: 6vh;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 6vh;
+  box-shadow: 0 0 0.5rem 0 $grey;
+  background-color: $white;
+  p {
+    font-weight: 700;
+  }
+}
+
+main {
+  min-height: 86vh;
+  margin-bottom: 6vh;
+  // background-color: $cream;
+}
+
+// .container {
+//   position: relative;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   &__content {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     height: 80%;
+//     article {
+//       // width: 80%;
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: center;
+//       align-items: center;
+//       margin-bottom: 2em;
+//       h2 {
+//         text-align: center;
+//         line-height: 1.5em;
+//       }
+//     }
+//   }
+// }
+
+#anim-home {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.jana {
+  width: 72px;
+  height: 73px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  left: 18px;
+  bottom: 187px;
+}
+.olivia {
+  width: 72px;
+  height: 73px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  left: 112px;
+  bottom: 260px;
+}
+
+.olivia_profil {
+  background-image: url("./assets/images/profil_olivia.png");
+}
+.olivia_profil_1{
+  background-image: url("./assets/images/profil_olivia_1.png");
+}
+.olivia_profil_2{
+  background-image: url("./assets/images/profil_olivia_2.png");
+}
+
+.jana_profil{
+  background-image: url("./assets/images/profil_jana.png");
+}
+
+.jana_profil_1{
+  background-image: url("./assets/images/profil_jana_1.png");
+}
+
+.jana_profil_2{
+  background-image: url("./assets/images/profil_jana_2.png");
+}
+
+.girls-wrapper {
+  position: relative;
+  margin: auto;
+  padding: 2em 0;
+  height: 36%;
+}
+.girls path,
+.girls rect {
+  position: relative;
+  fill: none;
+  stroke: #55CCEE;
+  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 5s linear forwards;
+  animation: dash 8s linear forwards;
+  animation-delay: 7s;
+}
+@-webkit-keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg-title-wrapper {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  .svg-title {
+    margin: auto;
+    display: flex;
+    width: auto;
+  }
+}
+
+text {
+  text-align: center;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+
+  }
+}
+
+.first-arrow,
+.second-arrow,
+.third-arrow{
+  opacity:0;
+  animation: fade 3s forwards;
+}
+.first-arrow{
+  animation-delay: 4.2s;
+}
+
+.second-arrow{
+  animation-delay: 5s;
+}
+
+.third-arrow{
+  animation-delay: 5.8s;
+}
+
+.route .anim-route {
+  fill: none;
+  stroke: #55CCEE;
+  stroke-width: 3;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: lines 5s linear forwards;
+  animation: lines 4s linear forwards;
+  animation-delay: 2s;
+}
+// .anim-first {
+//   animation-delay: 0.2s;
+// }
+// .anim-second {
+//   animation-delay: 1.2s;
+// }
+// .anim-third {
+//   animation-delay: 2.2s;
+// }
+// .anim-fourth {
+//   animation-delay :3.2s;
+// }
+// .anim-fifth {
+//   animation-delay: 4.2s;
+// }
+
+
+@keyframes lines{
+  from{
+    stroke-dashoffset:-275;
+  }
+  to{
+    stroke-dashoffset:400;
+  }
+}

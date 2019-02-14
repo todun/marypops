@@ -1,0 +1,15 @@
+.botui-message-content {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #FF914D !important;
+}
+.botui-message-content {
+  color: white !important;
+}
+.botui-actions-buttons-button {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), #55CCEE !important;
+}
+
+@media (min-width: 400px) {
+  .botui-actions-text-submit {
+      display: inherit !important;
+  }
+}

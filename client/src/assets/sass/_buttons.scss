@@ -1,0 +1,38 @@
+.btn {
+  min-height: 2rem;
+  padding: 0.5em 2em;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), $blue;
+  border-radius: 8px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  color: $white;
+    font-family: $font-content;
+    letter-spacing: 0.1em;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), darken($blue, 10%);
+  }
+  &--orange {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), $orange;
+    &:hover {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), darken($orange, 10%);
+    }
+  }
+  &--input {
+    margin-top: 2rem;
+    min-width: 130px;
+    padding: auto 0.5rem;
+    align-self: flex-end;
+  }
+}
+input:disabled {
+  background-color: $grey !important;
+  color: $black;
+  cursor: none;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
